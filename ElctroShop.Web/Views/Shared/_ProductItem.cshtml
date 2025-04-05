@@ -1,0 +1,22 @@
+﻿@model ProductViewModel
+
+        <div class="col-md-3 col-sm-6 article-box">
+            <article>
+                <a href="/Product/ShowProduct/@Model.Id">
+                    <img src="/ProductImage/@Model.ImageName" alt="">
+                </a>
+               
+                <h2><a 
+                       asp-controller="Product"
+                       asp-action="ShowProduct"
+                       asp-route-id="@Model.Id">
+                      @Model.Title</a></h2>
+
+                <div class="detail">
+
+                    <span class="price">@Model.Price.ToString("#,0") تومان</span>
+                    <span class="basket"><i class="zmdi zmdi-shopping-basket" href="#"></i></span>
+                    <section class="clearfix"></section>
+                </div>
+            </article>
+        </div>

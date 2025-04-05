@@ -1,0 +1,147 @@
+﻿@model IEnumerable<ProductViewModel>
+
+@{
+    ViewData["Title"] = "محصولات";
+}
+
+<h1>مدیریت محصولات</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">افزودن محصول </a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Visit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tags)
+            </th>
+            <th>
+                سر گروه
+            </th>
+            <th>
+                زیر گروه
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="@((item.IsDelete)?"backgroupColor:red":"")">
+                <td>
+                    <img src="/ProductImage/@item.ImageName" width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+
+                <td>
+                    @item.Price.ToString("#,0")
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tags)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Group.GroupTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubGroup.SubGroupTitle)
+                </td>
+                <td>
+                    @item.CreateDate.ToShamsi()
+                </td>
+                <td>
+                    @item.ModifiDate?.ToShamsi()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDelete)
+                </td>
+                <td class="btn-group-custom d-flex">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning">ویرایش</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">جزئیات</a> |
+                    <a onclick="deleteproduct('@item.Title',@item.Id)" class="btn btn-sm btn-outline-danger">حذف</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (ViewBag.PageCount > 1)
+{
+    <nav aria-label="...">
+        <ul class="pagination">
+            @if (ViewBag.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Admin/Products?pageId=@((ViewBag.CurrentPage-1))">قبلی</a>
+                </li>
+            }
+
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                <li class="page-item @((ViewBag.CurrentPage==i)?"active":"")">
+                    <a class="page-link" href="/Admin/Products?pageId=@i">@i <span class="sr-only">(current)</span></a>
+                </li>
+            }
+
+            @if (ViewBag.CurrentPage < ViewBag.PageCount)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Admin/Products?pageId=@((ViewBag.CurrentPage+1))">بعدی</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+
+
+
+
+@section Scripts
+{
+    <script>
+        function deleteproduct(productTitle, productId) {
+
+            Swal.fire({
+                title: `آیا از حذف ${productTitle} مطمئن هستید؟`,
+                icon: "Error",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "تأیید"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "/Admin/Products/Delete/" + productId;
+                }
+            });
+        }
+    </script>
+}

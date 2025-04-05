@@ -1,0 +1,47 @@
+﻿@model EditAccountViewModel
+
+<div class="row">
+    <div class="container">
+        <div class="col-12">
+
+            <form asp-action="EditAccount" enctype="multipart/form-data" method="post">
+
+                <input type="hidden" asp-for="Id" />
+
+                <input type="hidden" asp-for="AvatarName" />
+                <div class="form-group">
+                    <label asp-for="Username"></label>
+                    <input type="text" asp-for="Username" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="AvatarName"></label>
+                    <input type="file" asp-for="Avatar" id=" ImgUpload" onchange="ImgPre(this)" class="form-control" />
+
+                    <img id="ImgPreview" src="/Avatar/@Model.AvatarName" width="100" />
+
+                </div>
+                <input type="submit" class="btn btn-success" value="ویرایش" />
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script>
+        function ImgPre(input) {
+            if (input.files[0]) {
+                var uploadimg = new FileReader();
+                uploadimg.onload = function (displayimg) {
+                    $("#ImgPreview").attr('src', displayimg.target.result);
+                }
+                uploadimg.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

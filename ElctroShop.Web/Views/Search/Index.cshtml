@@ -1,0 +1,99 @@
+﻿@model IEnumerable<ProductViewModel>
+<section class="mt-20">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-9 col-sm-12 col-xs-12 pull-left">
+                <section class="box-section border">
+                    <header class="right-border">
+                        <h3> آرشیو محصولات </h3>
+                    </header>
+                    <form action="/" method="post">
+                        <ul class="filters">
+
+                         
+                        </ul>
+                    </form>
+                    <ul class="products">
+                        @foreach (var item in Model)
+                        {
+                            <li class="box-product">
+
+                                <article>
+                                    <a href="/Product/ShowProduct/@item.Id">
+                                        <img src="/ProductImage/@item.ImageName" alt="">
+                                    </a>
+                                    <h2><a href="/Product/ShowProduct/@item.Id">@item.Title</a></h2>
+
+                                    <section class="detail">
+                                        <span class="price">@item.Price.ToString("#,0") تومان</span>
+                                        <span class="basket"><i class="zmdi zmdi-shopping-basket"></i></span>
+                                        <section class="clearfix"></section>
+                                    </section>
+                                </article>
+
+                            </li>
+                        }
+                    </ul>
+                </section>
+                <section class="product-paging mt-20">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li><a class="page-active" href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </section>
+            </main>
+            <section class="box-section border" id="product-list">
+                <header class="right-border">
+                    <h3> دسته بندی ها </h3>
+                </header>
+                <ul class="category-menu">
+                    @if (ViewBag.Group != null)
+                    {
+                        List<ShowGroupViewModel> showgroups = ViewBag.Group as List<ShowGroupViewModel>;
+
+                        @foreach (var item in showgroups)
+                        {
+                            <li>
+                                <i class="zmdi zmdi-folder-outline"></i>
+                              
+                                <a href="/ShowGroup/@item.Id/@item.GroupTitle" data-group-id="@item.Id">  @item.GroupTitle </a>
+
+                                <ul>
+                                    @if (item.SubGroups.Any())
+                                    {
+
+                                        @foreach (var sub in item.SubGroups.Where(s => !s.IsDelete))
+                                        {
+                                            <li>
+                                                <i class="zmdi zmdi-chevron-left"></i><a href="/ShowSubGroup/@sub.Id/@sub.SubGroupTitle" data-group-id="@sub.Id">@sub.SubGroupTitle</a>
+                                               
+                                            </li>
+                                        }
+
+                                    }
+
+
+                                </ul>
+                            </li>
+                        }
+
+
+
+                    }
+                    <li>
+
+                        <ul class="child-category-menu">
+                        </ul>
+                    </li>
+
+                </ul>
+            </section>
+        </div>
+    </div>
+</section>
+

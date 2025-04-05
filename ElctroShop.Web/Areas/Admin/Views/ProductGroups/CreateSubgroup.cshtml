@@ -1,0 +1,27 @@
+﻿@model  CreateSubgroupViewModel
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">افزودن زیر گروه</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form role="form"asp-action="CreateSubgroup"method="post">
+       
+        <input  type="hidden"asp-for="GroupId"/>
+        
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1"> زیر گروه</label>
+                <input type="text"asp-for="SubGroupTitle" class="form-control" id="exampleInputEmail1" placeholder="عنوان زیر گروه  را وارد کنید">
+            </div>
+        
+ 
+         
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">ثبت</button>
+        </div>
+    </form>
+</div>

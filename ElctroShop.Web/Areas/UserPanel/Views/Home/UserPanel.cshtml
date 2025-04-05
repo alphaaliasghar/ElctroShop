@@ -1,0 +1,55 @@
+﻿@model UserViewModel
+<div class="container mt-20">
+    <div class="row">
+
+        <!--#region right-side-->
+
+        <aside class="col-md-4 col-sm-12 col-xs-12 user-account">
+            <div class="avatar-layer">
+                <div class="img-layer">
+                    <a href="#" class="change-image"><i class="glyphicon glyphicon-edit"></i></a>
+                    <img src="/Avatar/@Model.AvatarName">
+                </div>
+                <div class="detail">
+                    <span>@Model.UserName </span>
+                    <span> عضویت : @Model.CreateDate.ToShamsi() </span>
+                </div>
+            </div>
+            <section>
+                <header>
+                    <h3> میز کار </h3>
+                </header>
+                <div class="inner">
+                    <ul>
+                        <li><a href="#"> مشاهده حساب کابری </a></li>
+                        <li><a asp-action="EditAccount" asp-route-id="@Model.Id"> ویرایش حساب کابری </a></li>
+                        <li><a asp-action="ChangePassword"> تغییر رمز عبور </a></li>
+                        <li><a asp-controller="Orders" asp-action="Index">   سبد خرید </a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="Logout"> خروج از حساب کاربری </a></li>
+                    </ul>
+                </div>
+            </section>
+        </aside>
+        <!--#endregion-->
+        <!--#region left-side-->
+        <main class="col-md-8 col-sm-12 col-xs-12">
+            <section class="user-account-content">
+                <header>
+                    <h1> داشبورد </h1>
+                </header>
+                <div class="inner">
+                    <div class="account-information">
+                        <h3> اطلاعات کاربری </h3>
+                        <ul>
+                            <li> <i class="zmdi zmdi-account"></i> نام کاربری : @Model.UserName </li>
+                            <li> <i class="zmdi zmdi-email"></i> ایمیل :@Model.Email </li>
+                            <li> <i class="zmdi zmdi-calendar"></i> تاریخ عضویت :@Model.CreateDate.ToShamsi() </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--#endregion-->
+
+    </div>
+</div>

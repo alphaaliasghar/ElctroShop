@@ -1,0 +1,110 @@
+﻿@model ElctroShop.Domain.Models.Order.Order
+
+
+@if (Model.OrderDetails != null && Model.OrderDetails.Any(d => !d.IsDelete) && !Model.IsFainaly)
+{
+    <section class="mt-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+
+                        <h1>سبد خرید شما</h1>
+                        <div class="table-responsive">
+                            <table class="table table-bordered text-right">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">شرح محصول</th>
+                                        <th>تعداد</th>
+                                        <th>قیمت واحد</th>
+                                        <th colspan="2">قیمت کل</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.OrderDetails.Where(d=>!d.IsDelete))
+                                    {
+                                        <tr>
+
+                                            <td>
+                                                <a href="#"><img src="/ProductImage/@item.Product.ImageName" alt="" width="50"></a>
+                                            </td>
+                                            <td><a  asp-area="" asp-controller="Product"
+                                                   asp-action="ShowProduct"asp-route-id="@item.Product.Id"> @item.Product.Title </a></td>
+                                            <td>
+
+                                                @item.Count
+
+                                            </td>
+                                            <td> @item.Price.ToString("#,0") </td>
+
+                                            <td> @((item.Count*item.Price).ToString("#,0")) </td>
+
+                                            <td>
+                                                <a asp-controller="Orders" asp-action="QuantityProduct"
+                                                   asp-route-id="@item.Id"  asp-route-command="up"
+                                                 
+                                                   class="btn btn-success btn-xs">
+                                                    <i class="glyphicon glyphicon-arrow-up"></i>
+                                                </a>
+                                                <a  asp-controller="Orders" asp-action="QuantityProduct"
+                                                   asp-route-id="@item.Id" 
+                                                   asp-route-command="down"
+                                                   class="btn btn-danger btn-xs">
+
+                                                    <i class="glyphicon glyphicon-arrow-down"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <form asp-area="UserPanel" asp-controller="Orders"  asp-action="DeleteOrder" method="post">
+
+                                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                                    <input type="hidden" name="orderdetailId" value="@item.Id" />
+
+                                                    <button type="submit" asp-area="UserPanel"
+                                                            asp-controller="Orders"
+                                                            asp-action="DeleteOrder"
+                                                            asp-route-productId="@item.ProductId"
+                                                            asp-route-orderdetailId="@item.Id">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+
+
+
+
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="4">قیمت کل</th>
+                                        <th colspan="2"> @Model.OrderDetails.Sum(d => d.Count * d.Price).ToString("#,0")</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="box-footer">
+                            <div class="pull-right"></div>
+                            <div class="pull-left">
+                                <a type="submit" asp-area="" asp-controller="Payment"
+                                   asp-action="StartPay" asp-route-orderId="@Model.Id"
+                                   class="btn btn-sm btn-block btn-success btn-radius">
+                                    &nbsp;پذیرفتن و ادامه خرید
+                                </a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        <p>سبد خرید شما خالی است</p>
+    </div>
+}

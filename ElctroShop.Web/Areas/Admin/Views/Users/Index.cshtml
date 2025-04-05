@@ -1,0 +1,75 @@
+﻿@model IEnumerable<UserViewModel>
+
+@{
+    ViewData["Title"] = "مدیریت کاربران";
+}
+
+<h1>لیست کاربران</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">افزودن کاربر </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AvatarName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="/Avatar/@item.AvatarName" width="50" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @item.CreateDate.ToShamsi() -  @item.ModifiDate?.ToString("HH:mm:ss")
+                </td>
+                <td>
+
+                    @item.ModifiDate?.ToShamsi() - @item.ModifiDate?.ToString("HH:mm:ss")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDelete)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning">ویرایش</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">جزئیات</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

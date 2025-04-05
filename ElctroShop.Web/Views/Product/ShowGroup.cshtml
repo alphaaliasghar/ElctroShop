@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ProductViewModel>
+
+
+<section class="section">
+    <div class="container">
+        <div class="col-md-12">
+            <section class="box-section border">
+                <header class="right-border">
+                    <h3> جدیدترین محصولات سایت </h3>
+                    @*<a class="more" href="">محصولات بیشتر<i class="zmdi zmdi-more"></i></a>*@
+                    <section class="clearfix"></section>
+                </header>
+                <section class="inner">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <partial name="_ProductItem" model="@item" />
+                        }
+
+
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+</section>
+

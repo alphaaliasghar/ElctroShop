@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProductViewModel>
+
+@{
+    ViewData["Title"] = "خانه ";
+}
+
+
+<section class="section">
+    <div class="container">
+        <div class="col-md-12">
+            <section class="box-section border">
+                <header class="right-border">
+                    <h3> جدیدترین محصولات سایت </h3>
+                    @*<a class="more" href="">محصولات بیشتر<i class="zmdi zmdi-more"></i></a>*@
+                    <section class="clearfix"></section>
+                </header>
+                <section class="inner">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <partial name="_ProductItem" model="@item" />
+                        }
+
+
+                    </div>
+
+                </section>
+            </section>
+            @if (ViewBag.PageCount > 1)
+            {
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        @if (ViewBag.CurrentPage > 1)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="/Home/Index?pageId=@((ViewBag.CurrentPage-1))">قبلی</a>
+                            </li>
+                        }
+
+                        @for (int i = 1; i <= ViewBag.PageCount; i++)
+                        {
+                            <li class="page-item @((ViewBag.CurrentPage==i)?"active":"")">
+                                <a class="page-link" href="/Home/Index?pageId=@i">@i <span class="sr-only">(current)</span></a>
+                            </li>
+                        }
+
+                        @if (ViewBag.CurrentPage < ViewBag.PageCount)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="/Home/Index?pageId=@((ViewBag.CurrentPage+1))">بعدی</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            }
+        </div>
+    </div>
+
+</section>
+
+
+

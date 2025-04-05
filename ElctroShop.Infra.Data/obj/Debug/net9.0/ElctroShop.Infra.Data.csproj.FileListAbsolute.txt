@@ -1,0 +1,17 @@
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\bin\Debug\net9.0\ElctroShop.Infra.Data.deps.json
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\bin\Debug\net9.0\ElctroShop.Infra.Data.runtimeconfig.json
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\bin\Debug\net9.0\ElctroShop.Infra.Data.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\bin\Debug\net9.0\ElctroShop.Infra.Data.pdb
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\bin\Debug\net9.0\ElctroShop.Domain.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\bin\Debug\net9.0\ElctroShop.Domain.pdb
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroShop.Infra.Data.csproj.AssemblyReference.cache
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroShop.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroShop.Infra.Data.AssemblyInfoInputs.cache
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroShop.Infra.Data.AssemblyInfo.cs
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroShop.Infra.Data.csproj.CoreCompileInputs.cache
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroSh.D5A15A51.Up2Date
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroShop.Infra.Data.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\refint\ElctroShop.Infra.Data.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroShop.Infra.Data.pdb
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ElctroShop.Infra.Data.genruntimeconfig.cache
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Infra.Data\obj\Debug\net9.0\ref\ElctroShop.Infra.Data.dll

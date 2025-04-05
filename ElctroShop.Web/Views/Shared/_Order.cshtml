@@ -1,0 +1,9 @@
+﻿@model ProductViewModel
+<section class="cart">
+    <a asp-area="UserPanel" asp-controller="Orders"
+       asp-route-productId="@Model.Id">
+        <i class="zmdi zmdi-shopping-cart"></i>
+        <span>سبد خرید</span>
+        <div class="qty">3</div>
+    </a>
+</section>

@@ -1,0 +1,17 @@
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\bin\Debug\net9.0\ElctroShop.Application.deps.json
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\bin\Debug\net9.0\ElctroShop.Application.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\bin\Debug\net9.0\ElctroShop.Application.pdb
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\bin\Debug\net9.0\ElctroShop.Domain.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\bin\Debug\net9.0\ElctroShop.Infra.Data.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\bin\Debug\net9.0\ElctroShop.Infra.Data.pdb
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\bin\Debug\net9.0\ElctroShop.Domain.pdb
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.csproj.AssemblyReference.cache
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.AssemblyInfoInputs.cache
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.AssemblyInfo.cs
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.csproj.CoreCompileInputs.cache
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroSh.93C601B8.Up2Date
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\refint\ElctroShop.Application.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.pdb
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ref\ElctroShop.Application.dll

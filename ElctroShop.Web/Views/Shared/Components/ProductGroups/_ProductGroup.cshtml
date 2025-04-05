@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ShowGroupViewModel>
+<div class="main-menu">
+    <div class="container">
+        <div id="demo2"></div>
+        <nav>
+            <ul id="menu">
+                @foreach (var item in Model)
+                {
+                    @*<li><a href=""> @item.GroupTitle </a></li>*@
+
+
+                    <li>
+                        <a href="/showgroup/@item.Id/@item.GroupTitle"> @item.GroupTitle </a>
+                        @if (item.SubGroups.Any())
+                        {
+                            <ul>
+                                @foreach (var sub in item.SubGroups.Where(s => s.IsDelete == false))
+                                {
+
+                                    <li><a href="/showsubgroup/@sub.Id/@sub.SubGroupTitle">  @sub.SubGroupTitle </a></li>
+
+
+                                }
+                            </ul>
+                        }
+
+                    </li>
+
+                }
+
+
+
+            </ul>
+        </nav>
+    </div>
+</div>

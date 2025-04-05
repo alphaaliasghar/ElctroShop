@@ -1,0 +1,53 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "ثبت نام";
+}
+
+<div class="container mt-20">
+    <section class="box-section border account-layer">
+        <header class="right-border">
+            <h3> عضویت در سایت </h3>
+        </header>
+        <div class="form-layer">
+            <form asp-action="Register" method="post">
+                <div class="input-group">
+                    <span class="input-group-addon" id="username"><i class="zmdi zmdi-account"></i></span>
+                    <input type="text" asp-for="UserName" class="form-control" placeholder="نام و نام خانوادگی">
+
+                </div>
+                <span asp-validation-for="UserName"></span>
+                <div class="input-group">
+                    <span class="input-group-addon" id="email-address"><i class="zmdi zmdi-email"></i></span>
+                    <input asp-for="Email" type="text" class="form-control" placeholder="ایمیل">
+                </div>
+                <span asp-validation-for="Email"></span>
+                <div class="input-group">
+                    <span class="input-group-addon" id="password"><i class="zmdi zmdi-key"></i></span>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="کلمه عبور ">
+
+                </div>
+                <span asp-validation-for="Password"></span>
+                <div class="input-group">
+                    <span class="input-group-addon" id="password"><i class="zmdi zmdi-key"></i></span>
+                    <input asp-for="RePassword" type="password" class="form-control" placeholder=" تکرار کلمه  عبور  ">
+
+                </div>
+                <span asp-validation-for="RePassword"></span>
+                <div class="remember-me">
+                    <label><input type="checkbox" asp-for="Rouls" > قوانین و مقررات سایت را می پذیرم ! </label>
+                </div>
+                <span asp-validation-for="Rouls"></span>
+                <div class="link">
+
+                    <a asp-controller="Account" asp-action="Login"> <i class="zmdi zmdi-sign-in"></i> ورود به سایت </a>
+                </div>
+                <button class="btn btn-danger btn-md btn-block btn-radius"> عضویت در سایت </button>
+            </form>
+        </div>
+    </section>
+</div>
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,13 @@
+﻿
+@if (User.Identity.IsAuthenticated)
+{
+    <li><a asp-area="UserPanel" asp-controller="Home" asp-action="UserPanel"><i class="zmdi zmdi-account-add"></i> @User.Identity.Name </a></li>
+    <li><a asp-controller="Account" asp-action="Logout"><i class="zmdi zmdi-sign-in"></i>   خروج! </a></li>
+
+}
+else
+{
+    <li><a asp-controller="Account" asp-action="Register"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
+    <li><a asp-controller="Account" asp-action="Login"><i class="zmdi zmdi-sign-in"></i>   ورود </a></li>
+
+}

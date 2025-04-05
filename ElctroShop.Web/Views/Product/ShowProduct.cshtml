@@ -1,0 +1,103 @@
+﻿@model ProductViewModel
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<section class="mt-20">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8 col-sm-12 col-xs-12 pull-left">
+                <section class="box-section border">
+                    <header class="right-border">
+                        <h3> @Model.Title</h3>
+                    </header>
+                    <section>
+                        <div class="row">
+                            <div class="col-md-8 col-sm-12 col-xs-12 pull-left product-detail">
+
+                                <div>
+                                    <span> قیمت : @Model.Price.ToString("#,0") </span>
+                                    <a  asp-controller="Order" asp-action="AddToCard" asp-route-productId="@Model.Id"  class="add-to-card-link"> افزودن به سبد خرید </a>
+                                    <section class="clearfix"></section>
+                                </div>
+                                <p>
+                                    @Model.ShortDescription
+                                </p>
+
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12 pull-right product-gallery">
+
+                                <div class="large-image">
+                                    <img src="/ProductImage/@Model.ImageName">
+                                </div>
+                                <div class="thumbnails-image image">
+                                    <div class="row col-3">
+                                        @foreach (var img in Model.ProductGalleries.Where(g => !g.IsDelete))
+                                        {
+                                            <div class="col-md-3 col-sm-3 col-xs-4"><a href="/ProductImage/@img.ImageName" data-lightbox="gallery"><img src="/ProductImage/@img.ImageName"></a></div>
+
+                                        }
+                                        <div class="clearfix"></div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <section class="tabs-comment mt-20">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#note"> توضیحات محصول </a></li>
+
+                        @*<li><a data-toggle="tab" href="#comments"> نظرات کاربران </a></li>*@
+                    </ul>
+                    <div class="tab-content ">
+
+                        <!--#region note-->
+                        <div id="note" class="tab-pane fade in active">
+                            <h3>@Model.Title : </h3>
+                            <p>
+                                @Html.Raw(Model.Description)
+                            </p>
+
+                        </div>
+                        <!--#endregion-->
+                        <!--#region comments-->
+                    
+                        <!--#endregion-->
+                    </div>
+                </section>
+            </main>
+            <aside class="col-md-4 col-sm-12 col-xs-12 pull-right mt-md-20">
+                <section class="product-info border">
+                    <header class="right-border">
+                        <h3> جزییات محصول </h3>
+                    </header>
+                    <ul>
+                        <li><i class="zmdi zmdi-group"></i> گروه : <a  asp-controller="Product" asp-action="ShowGroup" asp-route-groupId="@Model.GroupId"
+                                                                     asp-route-groupTitle="@Model.Title"> @Model.Group.GroupTitle</a></li>
+                        <li><i class="zmdi zmdi-eye"></i> تعداد بازدید : @Model.Visit</li>
+                        <li><i class="zmdi zmdi-calendar-check"></i> تاریخ انتشار :  @Model.CreateDate.ToShamsi()</li>
+                        <li><i class="zmdi zmdi-calendar-check"></i> تاریخ بروز رسانی :  @Model.ModifiDate?.ToShamsi()</li>
+                        <li>
+                            <i class="zmdi zmdi-tag"></i> برچسب ها :
+                            <div class="tags">
+                                <br>
+                                @foreach (string tag in Model.Tags.Split("-", StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    <a href="/Search?q=@tag" title=""> @tag </a>
+                                }
+
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+        </div>
+    </div>
+</section>
+

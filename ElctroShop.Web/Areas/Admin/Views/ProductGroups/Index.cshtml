@@ -1,0 +1,144 @@
+﻿@model IEnumerable<ProductGroupViewModel>
+
+@{
+    ViewData["Title"] = "گروه ها";
+}
+
+<h1>مدیریت سر گروه و زیر گروه </h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">افزودن سر گروه  </a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubGroups)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="border:2px solid black">
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupTitle)
+                </td>
+                <td>
+
+                    <div class="subgroup-container">
+                        @foreach (var sub in item.SubGroups)
+                        {
+                            <div class="subgroup-item ">
+                                @Html.DisplayFor(modelItem => sub.SubGroupTitle)
+                                |
+                                <a asp-action="EditSubgroup"
+                                   asp-route-groupId="@item.Id"
+                                   asp-route-subGroupId="@sub.Id"
+                                   class="btn btn-sm btn-info custom-btn">ویرایش</a>
+                                |
+                                <a onclick="DeleteConfirm(@sub.Id)" id="deletesub"
+                                   class="btn btn-sm btn-outline-danger  custom-btn">
+                                    @if (sub.IsDelete)
+                                    {
+                                        <text>باز گردانی </text>
+                                    }
+                                    else
+                                    {
+                                        <text>حذف</text>
+                                    }
+                                </a>
+                            </div>
+
+                        }
+
+                    </div>
+
+                    <br />
+
+
+                </td>
+                <td>
+                    @item.CreateDate.ToShamsi()
+                </td>
+                <td>
+                    @item.ModifiDate?.ToShamsi()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDelete)
+                </td>
+                <td>
+                    <a asp-action="CreateSubgroup" asp-route-groupId="@item.Id" class="btn btn-sm btn-outline-primary">  افزودن زیر گروه </a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn  btn-outline-warning">ویرایش</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary"> جزئیات</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn  btn-outline-danger">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (ViewBag.PageCount > 1)
+{
+    <nav aria-label="...">
+        <ul class="pagination">
+            @if (ViewBag.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Admin/ProductGroups?pageId=@((ViewBag.CurrentPage-1))">قبلی</a>
+                </li>
+            }
+
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                <li class="page-item @((ViewBag.CurrentPage==i)?"active":"")">
+                    <a class="page-link" href="/Admin/ProductGroups?pageId=@i">@i <span class="sr-only">(current)</span></a>
+                </li>
+            }
+
+            @if (ViewBag.CurrentPage < ViewBag.PageCount)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Admin/ProductGroups?pageId=@((ViewBag.CurrentPage+1))">بعدی</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+
+@section Scripts
+{
+    <script>
+        function DeleteConfirm(subgroupId) {
+            Swal.fire({
+                title: "آیا از انجام عملیات مطمئن هستید؟",
+       
+                icon: "warning",  // درست کردن آرگومان 'icon'
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "تأیید"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // ارسال درخواست به سرور برای حذف
+                    location.href = "/Admin/ProductGroups/DeleteSubGroup?subgroupId=" + subgroupId;
+                }
+            });
+        }
+    </script>
+}
+

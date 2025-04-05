@@ -1,0 +1,81 @@
+﻿@model UpdateUserViewModel
+
+@{
+    ViewData["Title"] = "ویرایش";
+}
+
+<h1>ویرایش کاربر</h1>
+
+
+<hr />
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data" method="post">
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="AvatarName" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewPassword" class="control-label"></label>
+                <input asp-for="NewPassword" class="form-control" />
+                <span asp-validation-for="NewPassword" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Avatar" class="control-label"></label>
+                <input type="file" asp-for="Avatar" id=" ImgUpload" onchange="ImgPre(this)" />
+                <img src="/Avatar/@Model.AvatarName" id="ImgPreview" width="100" />
+                <span asp-validation-for="Avatar" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDelete" /> @Html.DisplayNameFor(model => model.IsDelete)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function ImgPre(input) {
+            if (input.files[0]) {
+                var uploadimg = new FileReader();
+                uploadimg.onload = function (displayimg) {
+                    $("#ImgPreview").attr('src', displayimg.target.result);
+                }
+                uploadimg.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+
+}

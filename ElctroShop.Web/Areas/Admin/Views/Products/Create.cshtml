@@ -1,0 +1,111 @@
+﻿@model CreateProductviewModel
+
+@{
+    ViewData["Title"] = "افزودن";
+}
+
+<h1>افزودن محصول</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data"method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label"></label>
+                <input asp-for="Image" id=" ImgUpload" onchange="ImgPre(this)" />
+                <br />
+                <img id="ImgPreview"width="150" />
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+
+            </div>
+            <fieldset>
+                <legend> گالری محصول</legend>
+
+                <input type="file" asp-for="Gallery" multiple />
+            </fieldset>
+            <br />
+            <div class="form-group">
+                <label asp-for="Tags" class="control-label"></label>
+                <input asp-for="Tags" class="form-control" />
+                <span asp-validation-for="Tags" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="GroupId" class="control-label"></label>
+                    <select onchange="LoadSubGroup()" id="GroupId" asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
+                </div>
+                <div class="form-group col-6" id="subs">
+                    <label asp-for="SubGroupId" class="control-label"></label>
+                    <select asp-for="SubGroupId" class="form-control" asp-items="ViewBag.SubGroupId">
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">  بازگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="/CKEditor/ckeditor.js"></script>
+    <script>
+
+        CKEDITOR.replace("Description", {
+            language: 'fa'
+        });
+
+
+    </script>
+
+    <script>
+        function ImgPre(input) {
+            if (input.files[0]) {
+                var uploadimg = new FileReader();
+                uploadimg.onload = function (displayimg) {
+                    $("#ImgPreview").attr('src', displayimg.target.result);
+                }
+                uploadimg.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+    <script>
+        function LoadSubGroup() {
+            $("#subs").load("/Admin/Products/GetSubGroup?groupId=" +
+                $("#GroupId").val());
+        }
+    </script>
+
+
+
+}
