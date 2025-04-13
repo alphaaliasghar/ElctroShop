@@ -107,7 +107,7 @@ namespace ElctroShop.Application.Services.Implemation
 
             edit.UserName = model.Username;
             edit.Email = model.Email;
-            edit.ModifiDate=DateTime.Now;
+            edit.ModifiDate = DateTime.Now;
 
             #region ManageImage
 
@@ -131,7 +131,7 @@ namespace ElctroShop.Application.Services.Implemation
                 {
                     model.Avatar.CopyTo(stream);
                 }
-                
+
             }
             else
             {
@@ -139,10 +139,10 @@ namespace ElctroShop.Application.Services.Implemation
             }
 
 
-                #endregion
+            #endregion
 
 
-                _userRepository.UpdateUser(edit);
+            _userRepository.UpdateUser(edit);
             _userRepository.Save();
             return ResultEditAccount.Success;
         }
@@ -312,9 +312,6 @@ namespace ElctroShop.Application.Services.Implemation
                 IsAdmin = false,
                 IsDelete = false,
                 Password = PasswordHelper.EncodePasswordMd5(model.Password),
-
-
-
 
             };
             _userRepository.InsertUser(user);

@@ -17,3 +17,4 @@ F:\Programing\Zero Project\ElctroShop\ElctroShop.IoC\obj\Debug\net9.0\ElctroShop
 F:\Programing\Zero Project\ElctroShop\ElctroShop.IoC\obj\Debug\net9.0\refint\ElctroShop.IoC.dll
 F:\Programing\Zero Project\ElctroShop\ElctroShop.IoC\obj\Debug\net9.0\ElctroShop.IoC.pdb
 F:\Programing\Zero Project\ElctroShop\ElctroShop.IoC\obj\Debug\net9.0\ref\ElctroShop.IoC.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.IoC\obj\Debug\net9.0\ElctroShop.IoC.sourcelink.json

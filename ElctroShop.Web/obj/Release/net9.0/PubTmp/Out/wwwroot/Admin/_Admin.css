@@ -1,0 +1,25 @@
+﻿.subgroup-container {
+    display: block; /* این اطمینان حاصل می‌کند که آیتم‌ها به صورت عمودی نمایش داده شوند */
+}
+
+.subgroup-item {
+    display: block; /* هر آیتم به صورت بلوک قرار می‌گیرد */
+    margin-bottom: 5px; /* فضای بین آیتم‌ها */
+    padding: 5px;
+    background-color: #f0f0f0; /* رنگ پس‌زمینه */
+    border-radius: 5px; /* حاشیه گرد */
+    background-color: #ffd800
+}
+
+.custom-btn {
+    font-size: 20px;
+    padding: 2px 5px;
+    line-height: 1;
+}
+#deletesub {
+    background-color: red;
+}
+.btn-group-custom d-flex{
+    margin-left: 10px;
+}
+

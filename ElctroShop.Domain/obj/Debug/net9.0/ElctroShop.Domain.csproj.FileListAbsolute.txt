@@ -10,3 +10,4 @@ F:\Programing\Zero Project\ElctroShop\ElctroShop.Domain\obj\Debug\net9.0\refint\
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Domain\obj\Debug\net9.0\ElctroShop.Domain.pdb
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Domain\obj\Debug\net9.0\ref\ElctroShop.Domain.dll
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Domain\obj\Debug\net9.0\ElctroShop.Domain.csproj.AssemblyReference.cache
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Domain\obj\Debug\net9.0\ElctroShop.Domain.sourcelink.json

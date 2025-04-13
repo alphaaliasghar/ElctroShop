@@ -13,18 +13,34 @@
                     </header>
                     <section>
                         <div class="row">
-                            <div class="col-md-8 col-sm-12 col-xs-12 pull-left product-detail">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="col-md-8 col-sm-12 col-xs-12 pull-left product-detail">
 
-                                <div>
-                                    <span> قیمت : @Model.Price.ToString("#,0") </span>
-                                    <a  asp-controller="Order" asp-action="AddToCard" asp-route-productId="@Model.Id"  class="add-to-card-link"> افزودن به سبد خرید </a>
-                                    <section class="clearfix"></section>
+                                    <div>
+                                        <span> قیمت : @Model.Price.ToString("#,0") </span>
+                                        <a asp-controller="Order" asp-action="AddToCard" asp-route-productId="@Model.Id" class="add-to-card-link"> افزودن به سبد خرید </a>
+                                        <section class="clearfix"></section>
+                                    </div>
+                                    <p>
+                                        @Model.ShortDescription
+                                    </p>
+
                                 </div>
-                                <p>
-                                    @Model.ShortDescription
-                                </p>
+                            }
+                            else
+                            {
+                        <div class="col-md-8 col-sm-12 col-xs-12 pull-left product-detail">
 
+                            <div class="alert alert-danger">
+                               
+                                <p>برای خرید باید وارد سایت شوید</p>
+                                <section class="clearfix"></section>
                             </div>
+                          
+
+                        </div>
+                            }
                             <div class="col-md-4 col-sm-12 col-xs-12 pull-right product-gallery">
 
                                 <div class="large-image">
@@ -65,7 +81,6 @@
                         </div>
                         <!--#endregion-->
                         <!--#region comments-->
-                    
                         <!--#endregion-->
                     </div>
                 </section>
@@ -76,28 +91,30 @@
                         <h3> جزییات محصول </h3>
                     </header>
                     <ul>
-                        <li><i class="zmdi zmdi-group"></i> گروه : <a  asp-controller="Product" asp-action="ShowGroup" asp-route-groupId="@Model.GroupId"
-                                                                     asp-route-groupTitle="@Model.Title"> @Model.Group.GroupTitle</a></li>
-                        <li><i class="zmdi zmdi-eye"></i> تعداد بازدید : @Model.Visit</li>
-                        <li><i class="zmdi zmdi-calendar-check"></i> تاریخ انتشار :  @Model.CreateDate.ToShamsi()</li>
-                        <li><i class="zmdi zmdi-calendar-check"></i> تاریخ بروز رسانی :  @Model.ModifiDate?.ToShamsi()</li>
                         <li>
-                            <i class="zmdi zmdi-tag"></i> برچسب ها :
-                            <div class="tags">
-                                <br>
-                                @foreach (string tag in Model.Tags.Split("-", StringSplitOptions.RemoveEmptyEntries))
-                                {
-                                    <a href="/Search?q=@tag" title=""> @tag </a>
-                                }
+                            <i class="zmdi zmdi-group"></i> گروه : <a asp-controller="Product" asp-action="ShowGroup" asp-route-groupId="@Model.GroupId"
+                                                                      asp-route-groupTitle="@Model.Title"> @Model.Group.GroupTitle</a>
+                                                                </li>
+                                                                <li><i class="zmdi zmdi-eye"></i> تعداد بازدید : @Model.Visit</li>
+                                                                <li><i class="zmdi zmdi-calendar-check"></i> تاریخ انتشار :  @Model.CreateDate.ToShamsi()</li>
+                                                                <li><i class="zmdi zmdi-calendar-check"></i> تاریخ بروز رسانی :  @Model.ModifiDate?.ToShamsi()</li>
+                                                                <li>
+                                                                    <i class="zmdi zmdi-tag"></i> برچسب ها :
+                                                                    <div class="tags">
+                                                                        <br>
+                                                                        @foreach (string tag in Model.Tags.Split("-", StringSplitOptions.RemoveEmptyEntries))
+                                                                        {
+                                                                            <a href="/Search?q=@tag" title=""> @tag </a>
+                                                                        }
 
 
-                            </div>
-                        </li>
+                                                                    </div>
+                                                                </li>
 
-                    </ul>
-                </section>
-            </aside>
-        </div>
-    </div>
-</section>
+                                                            </ul>
+                                                        </section>
+                                                    </aside>
+                                                </div>
+                                            </div>
+                                        </section>
 

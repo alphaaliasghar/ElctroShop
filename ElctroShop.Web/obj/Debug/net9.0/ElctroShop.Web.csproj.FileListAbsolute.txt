@@ -220,7 +220,6 @@ F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\staticweba
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.ElctroShop.Web.props
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.ElctroShop.Web.props
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\staticwebassets.pack.json
-F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\ElctroSh.A2029F59.Up2Date
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\ElctroShop.Web.dll
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\refint\ElctroShop.Web.dll
@@ -1498,3 +1497,5 @@ F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\compressed
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\compressed\98mutrml50-owgy76zcxb.gz
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\compressed\mvus9my1uq-lztqdhe54n.gz
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\compressed\zb8setjx1t-xgg9ave7cb.gz
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\ElctroShop.Web.sourcelink.json
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Web\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

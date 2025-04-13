@@ -25,6 +25,8 @@ namespace ElctroShop.Web.Controllers
         {
            
             int CurrentUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+           
+          
             var order = _orderService.AddOrder(CurrentUserId, productId);
             return RedirectToAction("Index","Orders", new {area= "UserPanel", productId });
         }

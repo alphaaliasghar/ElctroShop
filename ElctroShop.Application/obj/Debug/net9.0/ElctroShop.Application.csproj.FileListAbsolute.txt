@@ -15,3 +15,4 @@ F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\El
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\refint\ElctroShop.Application.dll
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.pdb
 F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ref\ElctroShop.Application.dll
+F:\Programing\Zero Project\ElctroShop\ElctroShop.Application\obj\Debug\net9.0\ElctroShop.Application.sourcelink.json

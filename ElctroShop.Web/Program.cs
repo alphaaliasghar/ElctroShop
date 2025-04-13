@@ -55,7 +55,7 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseMiddleware<CheckAdminMiddleWare>();
 
-app.MapStaticAssets();
+app.UseStaticFiles();
 
 app.UseEndpoints(endpoints =>
 {
@@ -67,8 +67,8 @@ app.UseEndpoints(endpoints =>
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+ 
 
 
 app.Run();
