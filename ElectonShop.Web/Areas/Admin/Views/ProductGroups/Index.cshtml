@@ -1,0 +1,180 @@
+﻿@model IEnumerable<ProductGroupViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a href="#" onclick="Create()" class=" btn btn-outline-success">افزودن  سر گروه </a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubGroups)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="@((item.IsDelete)?"background-color:LightCoral":"") ">
+                <td>
+                    <img src="/Group/@item.GroupName" width="100" alt="Alternate Text" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupTitle)
+                </td>
+
+
+                <td>
+
+                    <div class="subgroup-container">
+                        @foreach (var sub in item.SubGroups)
+                        {
+                            <div class="subgroup-item" style="margin-top:10px">
+                                @Html.DisplayFor(modelItem => sub.SubGroupTitle)
+                                |
+                                <a asp-area="Admin"
+                                   asp-controller="ProductGroups"
+                                   asp-action="EditSubgroup"
+                                   asp-route-groupId="@item.Id"
+                                   asp-route-subgroupId="@sub.Id"
+                                   class="btn btn-sm btn-outline-warning custom-btn">ویرایش</a>
+                                |
+
+                                <a asp-action="DeleteSubgroup"
+                                   asp-route-groupId="@item.Id"
+                                   asp-route-subgroupId="@sub.Id"
+                                   id="deletesub"
+                                   class="btn btn-sm btn @((sub.IsDelete)?"btn-outline-info":"btn-outline-danger")  custom-btn">
+                                    @if (sub.IsDelete)
+                                    {
+                                        <text>باز گردانی </text>
+                                    }
+                                    else
+                                    {
+                                        <text>حذف</text>
+                                    }
+                                </a>
+                            </div>
+
+                        }
+
+                    </div>
+
+                    <br />
+
+
+                </td>
+
+
+
+                <td>
+                    @item.CreateDate.ToShamsi()
+                </td>
+                <td>
+                    @item.ModifiDate?.ToShamsi()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDelete)
+                </td>
+                <td>
+                    <a asp-controller="ProductGroups" asp-action="CreateSubGroup" asp-route-groupId="@item.Id"
+                       class="btn btn-sm btn-outline-dark">افزودن زیر گروه </a>
+                    <a onclick="Edit(@item.Id)" class="btn btn-outline-warning">ویرایش</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary">جزئیات</a> |
+
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn @((item.IsDelete)?"btn-info":"btn-danger")">
+
+                        @if (item.IsDelete)
+                        {
+                            <text> بازنگری</text>
+                        }
+                        else
+                        {
+                            <text> حذف</text>
+                        }
+                    </a>
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="myModalBody">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        function Create() {
+            $.ajax({
+
+                url: "/Admin/ProductGroups/Create",
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+
+                $('#myModal').modal('show');
+                $('#myModalTitle').html("افزودن سر گروه");
+                $('#myModalBody').html(result)
+            });
+            function Success() {
+                $('#myModal').modal('hide');
+            }
+        }
+
+        function Edit(id) {
+            $.ajax({
+
+                url: "/Admin/ProductGroups/Edit/" + id,
+                type: "Get",
+                data: {}
+            }).done(function (result) {
+
+                $('#myModal').modal('show');
+                $('#myModalTitle').html("ویرایش سر گروه");
+                $('#myModalBody').html(result)
+            });
+            function Success() {
+                $('#myModal').modal('hide');
+            }
+        }
+    </script>
+}

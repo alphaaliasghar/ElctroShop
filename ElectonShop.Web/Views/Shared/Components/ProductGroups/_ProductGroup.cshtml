@@ -1,0 +1,160 @@
+﻿@model IEnumerable<ProductGroupForShow>
+
+
+
+<div class="header-bottom-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="main-block">
+
+                    <div class="side-wrap header-menu">
+                        <div class="mainmenu-content">
+                            <div class="main-wrap">
+                                <ul class="main-menu">
+                                    <li class="menu-link">
+                                        <a href="/" class="link-title">
+                                            <span class="sp-link-title"> خانه</span>
+                                        </a>
+
+                                    </li>
+                                    <li class="menu-link">
+                                        <a href="collection.html" class="link-title">
+                                            <span class="sp-link-title"> فروشگاه</span>
+                                            <span class="menu-arrow"><i class="fa fa-angle-down"></i></span>
+                                        </a>
+                                        <div class="menu-dropdown menu-banner collapse" id="collapse-shop">
+
+                                            <ul class="container ul">
+                                                @foreach (var item in Model)
+                                                {
+                                                    <li class="menubanner-li">
+                                                        <div class="menubanner-img">
+                                                            <a asp-controller="Product" asp-action="ShowGroup"
+                                                               asp-route-groupId="@item.Id"
+                                                               asp-route-groupTitle="@item.GroupTitle" class="banner-hover">
+                                                                <img src="/Group/@item.ImageName" class="img-fluid" alt="menu-banner1">
+                                                            </a>
+                                                            <a href="collection.html" class="collection-title">
+                                                                <span>@item.GroupTitle</span>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                }
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="menu-link">
+                                        <a href="about-us.html" class="link-title">
+                                            <span class="sp-link-title">محصولات</span>
+                                            <span class="menu-arrow"><i class="fa fa-angle-down"></i></span>
+                                        </a>
+                                        <div class="menu-dropdown menu-sub collapse" id="page">
+                                            <ul class="ul">
+                                                @foreach (var Group in Model)
+                                                {
+                                                    <li class="menusub-li">
+                                                        <a class="menusub-title">
+                                                            <span class="sp-link-title"> @Group.GroupTitle</span>
+                                                            <span class="menu-arrow"><i class="fa-solid fa-angle-left"></i></span>
+                                                        </a>
+                                                        <div class="menusup-dropdown collapse" id="About">
+                                                            @if (Group.SubGroups.Any())
+                                                            {
+                                                                <ul class="menusup-ul">
+
+                                                                    @foreach (var sub in Group.SubGroups.Where(s => !s.IsDelete))
+                                                                    {
+                                                                        <li class="menusup-li">
+                                                                            <a asp-controller="Product" asp-action="ShowSubGroup"
+                                                                               asp-route-SubGroupId="@sub.Id" asp-route-subgroupTitle="@sub.SubGroupTitle"
+                                                                               class="menusup-title">
+                                                                                <span class="sp-link-title">@sub.SubGroupTitle</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    }
+
+
+
+
+                                                                </ul>
+                                                            }
+                                                        </div>
+                                                    </li>
+
+                                                }
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-wrap header-icon">
+                        <div class="header-icon-block">
+                            <ul class="shop-element">
+                                <li class="side-wrap toggler-wrap">
+                                    <div class="toggler-wrapper">
+                                        <button class="toggler-btn">
+                                            <span class="toggler-icon"><svg viewbox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></span>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="side-wrap search-wrap">
+                                    <div class="search-wrapper">
+                                        <a href="#searchmodal" data-bs-toggle="modal">
+                                            <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24"><path fill="currentColor" d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9s-9-4.032-9-9s4.032-9 9-9m0 16c3.867 0 7-3.133 7-7s-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7m8.485.071l2.829 2.828l-1.415 1.415l-2.828-2.829z"></path></svg></span>
+                                        </a>
+                                    </div>
+                                </li>
+                                F
+                                <li class="side-wrap user-wrap">
+                                    <div class="user-wrapper">
+                                        <a href="#store-account" class="collapsed" data-bs-toggle="collapse" aria-expanded="true">
+                                            <span class="user-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24"><path fill="currentColor" d="M20 22h-2v-2a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v2H4v-2a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5zm-8-9a6 6 0 1 1 0-12a6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8a4 4 0 0 0 0 8"></path></svg></span>
+                                            <span class="user-title"> ورود</span>
+                                        </a>
+                                        <div class="user-drower collapse" id="store-account">
+                                            <a href="login-account.html"> ورود</a>
+                                            <a href="create-account.html">ثبت نام</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*<li class="side-wrap wishlist-wrap">
+                                        <div class="wishlist-wrapper">
+                                            <a href="wishlist-empty.html">
+                                                <span class="wishlist-icon-count">
+                                                    <span class="wishlist-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24"><path fill="currentColor" d="M12.001 4.529a5.998 5.998 0 0 1 8.242.228a6 6 0 0 1 .236 8.236l-8.48 8.492l-8.478-8.492a6 6 0 0 1 8.48-8.464m6.826 1.641a3.998 3.998 0 0 0-5.49-.153l-1.335 1.198l-1.336-1.197a4 4 0 0 0-5.686 5.605L12 18.654l7.02-7.03a4 4 0 0 0-.193-5.454"></path></svg></span>
+                                                </span>
+                                                <span class="wishlist-title">علاقه مندی ها</span>
+                                            </a>
+                                        </div>
+                                    </li>*@
+                                <li class="side-wrap cart-wrap">
+                                    <div class="cart-wrapper">
+                                        <div class="shopping-cart">
+                                            <a asp-area="UserPanel"
+                                               asp-controller="Order"
+                                               asp-action="Index"
+                                               class="add-to-cart">
+                                                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 24 24"><path fill="currentColor" d="M6.505 2h11a1 1 0 0 1 .8.4l2.7 3.6v15a1 1 0 0 1-1 1h-16a1 1 0 0 1-1-1V6l2.7-3.6a1 1 0 0 1 .8-.4m12.5 6h-14v12h14zm-.5-2l-1.5-2h-10l-1.5 2zm-9.5 4v2a3 3 0 1 0 6 0v-2h2v2a5 5 0 0 1-10 0v-2z"></path></svg></span>
+                                                <span class="cart-title text">سبد خرید من</span>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

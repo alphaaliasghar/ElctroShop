@@ -1,0 +1,130 @@
+﻿@model InformationViewModel
+@{
+    ViewData["Title"] = "پنل کاربری";
+}
+
+<section class="breadcrumb-area">
+    <div class="container">
+        <div class="col">
+            <div class="row">
+                <div class="breadcrumb-index">
+                    <!-- breadcrumb-list start -->
+                    <ul class="breadcrumb-ul">
+                        <li class="breadcrumb-li">
+                            <a class="breadcrumb-link" href="index.html"> خانه</a>
+                        </li>
+                        <li class="breadcrumb-li">
+                            <span class="breadcrumb-text">پروفایل</span>
+                        </li>
+                    </ul>
+                    <!-- breadcrumb-list end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="pro-address-area section-ptb" id="profile-section">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="password-block">
+                    <!-- order profile start -->
+                    <div class="profile-info">
+                        <div class="account-profile">
+                            <div class="pro-img">
+                                <a href="javascript:void(0)" data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated">
+                                    <img src="/Avatar/@Model.AvatarName" class="img-fluid" alt="testi-1">
+                                </a>
+                            </div>
+                            <div class="profile-text">
+                                <h6 data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated">@Model.UserName</h6>
+                                <span data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated">تاریخ پیوستن: @Model.CreateDate.ToShamsi() - @Model.CreateDate.ToString("HH:mm:ss")</span>
+                            </div>
+                        </div>
+                        <div class="account-detail">
+                            <ul class="profile-ul">
+                                <li class="profile-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <a href="order-history.html">
+                                        <span>سفارشات</span>
+                                        <span class="pro-count">5</span>
+                                    </a>
+                                </li>
+                                <li class="profile-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <a id="profile-link" href="/UserPanel/Home/Index" class="active">پروفایل</a>
+                                </li>
+                                <li class="profile-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <a href="pro-address.html">آدرس</a>
+                                </li>
+                                <li class="profile-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <a href="pro-wishlist.html">
+                                        <span>علاقه مندی ها</span>
+                                        <span class="pro-count">3</span>
+                                    </a>
+                                </li>
+                                <li class="profile-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <a id="change-password-link" asp-controller="Home" asp-action="ChangePassword">
+                                        <span>تغییر رمز عبور</span>
+                                    </a>
+                                </li>
+                                <li class="profile-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <a href="pro-tickets.html">
+                                        <span>تیکت های من</span>
+                                        <span class="pro-count">4</span>
+                                    </a>
+                                </li>
+                                <li class="profile-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <a href="index.html">
+                                        <span>خروج</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- order profile end -->
+                    <!-- order info start -->
+                    <div id="content-area"></div>
+                    <div id="profile-result" class="profile-form profile-address">
+                        <div class="billing-area">
+                            <form>
+                                <div class="pro-add-title">
+                                    <h6 data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated">پروفایل</h6>
+                                </div>
+                                <div class="billing-form">
+                                    <ul class="input-2">
+                                        <li class="billing-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                            <label>نام  کاربری'</label>
+                                            <input asp-for="UserName" type="text" placeholder="نام" readonly>
+                                        </li>
+
+                                        <li class="billing-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                            <label>آدرس ایمیل</label>
+                                            <input asp-for="Email" type="text" placeholder="آدرس ایمیل" required="" readonly>
+                                        </li>
+
+
+
+                                    </ul>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="button-forget mb-4">
+                            <a asp-area="UserPanel"  asp-controller="Home" asp-action="EditInformation" asp-route-id="@Model.Id" type="submit" class="btn btn-style2">
+                               ویرایش حساب کاربری
+                            </a>
+                           
+
+                        </div>
+                    </div>
+                   
+                    <!-- order info end -->
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+</section>

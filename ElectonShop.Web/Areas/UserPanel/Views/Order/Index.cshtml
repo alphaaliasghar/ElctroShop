@@ -1,0 +1,140 @@
+﻿@model ElectonShop.Domain.Models.Order.Order
+
+@if (Model.OrderDetails != null && Model.OrderDetails.Any() && !Model.IsFainaly)
+{
+    <section class="cart-page section-ptb">
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="cart-page-wrap">
+                        <div class="cart-wrap-info">
+                            <div class="cart-item-wrap">
+                                <div class="cart-title">
+                                    <h6 data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated">سبد خرید من:</h6>
+
+                                </div>
+                                @foreach (var item in Model.OrderDetails)
+                                {
+                                    <div class="item-wrap">
+                                        <ul class="cart-wrap">
+                                            <!-- cart-info start -->
+                                            <li class="item-info">
+                                                <!-- cart-img start -->
+                                                <div class="item-img">
+                                                    <a href="product-template.html" data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated">
+                                                        <img src="/ProductImage/@item.Product.ImageName" class="img-fluid" alt="p-1">
+                                                    </a>
+                                                </div>
+                                                <!-- cart-img end -->
+                                                <!-- cart-title start -->
+                                                <div class="item-text">
+                                                    <a href="product-template.html" data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated"> @item.Product.Title</a>
+                                                    @*تعداد:  <a> @item.Count</a>*@
+
+                                                    <span class="item-option animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                                        <span class="item-price">@item.Price.ToString("#,0") تومان</span>
+                                                    </span>
+                                                </div>
+                                                <!-- cart-title send -->
+                                            </li>
+                                            <!-- cart-info end -->
+                                            <!-- cart-qty start -->
+                                            <li class="item-qty">
+                                                <div class="product-quantity-action">
+                                                    <div class="product-quantity animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                                        <div class="product-quantity-action">
+                                                            <div class="product-quantity animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+
+                                                                <div class="cart-plus-minus">
+
+
+                                                                    <input type="text" name="command" value="@item.Count" readonly>
+
+                                                                    @*<a asp-area="UserPanel"
+                                                                           asp-controller="Order"
+                                                                           asp-action="QuantityProduct"
+                                                                           asp-route-id="@item.Id"
+                                                                           asp-route-command="up" class="inc qtybutton plus">
+                                                                            <i class="fa-solid fa-plus"></i>
+                                                                        </a>*@
+                                                                </div>
+                                                                <td>
+                                                                    <a asp-controller="Order" asp-action="QuantityProduct"
+                                                                       asp-route-id="@item.Id" asp-route-command="up"
+                                                                       class="btn btn-success btn-xs">
+                                                                        <i class="glyphicon glyphicon-arrow-up"></i>
+                                                                    </a>
+                                                                    <a asp-controller="Order" asp-action="QuantityProduct"
+                                                                       asp-route-id="@item.Id"
+                                                                       asp-route-command="down"
+                                                                       class="btn btn-danger btn-xs">
+
+                                                                        <i class="glyphicon glyphicon-arrow-down"></i>
+                                                                    </a>
+                                                                </td>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="item-remove">
+                                                    <form asp-area="UserPanel" asp-controller="Order"
+                                                          asp-action="DeleteOrderDetail"
+                                                          method="post">
+                                                        <input type="hidden" name="orderdetailId" value="@item.Id" />
+                                                        <input type="hidden" name="productId" value="@item.ProductId" />
+                                                        <button type="submit"
+                                                                asp-area="UserPanel"
+                                                                asp-controller="Order"
+                                                                asp-action="DeleteOrderDetail"
+                                                                asp-route-orderdetailId="@item.Id"
+                                                                asp-route-productId="@item.ProductId"
+                                                                class="remove-link">
+                                                            حذف
+                                                        </button>
+                                                    </form>
+                                                </div>
+
+                                            </li>
+                                            <!-- cart-qty end -->
+                                            <!-- cart-price start -->
+                                            <li class="item-price animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                                <span class="amount full-price">@item.Price.ToString("#,0") تومان</span>
+                                            </li>
+                                            <!-- cart-price end -->
+                                        </ul>
+
+                                    </div>
+
+                                }
+
+                                @*<div class="cart-buttons animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                        <a href="collection.html" class="btn-style2">ادامه خرید</a>
+                                        <a href="cart-empty.html" class="btn-style2">پاک کردن سبد خرید</a>
+                                    </div>*@
+                            </div>
+                            <div class="cart-total-wrap cart-info">
+                                <div class="cart-total">
+                                    <div class="total-amount animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                        <h6 class="total-title">جمع کل</h6>
+                                        <span class="amount total-price">@Model.OrderDetails.Sum(s => s.Count * s.Price)  تومان</span>
+                                    </div>
+
+                                    <div class="proceed-to-checkout animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                      <a  asp-area="" asp-controller="Payment" asp-action="StartPay" asp-route-orderId="@Model.Id" class="btn btn-style2">تسویه حساب</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+

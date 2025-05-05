@@ -1,0 +1,219 @@
+﻿@model ShowProductViewModel
+<section class="breadcrumb-area">
+    <div class="container">
+        <div class="col">
+            <div class="row">
+                <div class="breadcrumb-index">
+                    <!-- breadcrumb-list start -->
+                    <ul class="breadcrumb-ul">
+                        <li class="breadcrumb-li">
+                            <a class="breadcrumb-link" href="index.html"> خانه</a>
+                        </li>
+                        <li class="breadcrumb-li">
+                            <span class="breadcrumb-text">@Model.Title</span>
+                        </li>
+                    </ul>
+                    <!-- breadcrumb-list end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product-details-page6 pro-style6">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="pro-details-pos pro-details-left-pos">
+                    <!-- Product slider start -->
+                    <div class="product-detail-slider product-details-tb product-details product-details-sticky">
+                        <!-- Product slider start -->
+                        <div class="product-detail-img product-detail-img-bottom">
+                            <div class="product-img-top">
+
+                                <!-- blog slick slider start -->
+                                <div class="slider-big-6 slick-slider slick-initialized">
+                                    <div class="slick-list draggable" style="padding: 0px; height: 562.338px;">
+                                        <div class="style4-slider-big slick-slider slick-initialized">
+                                            <div class="slick-list draggable">
+                                                <div class="slick-track">
+                                                    <div class="slick-slide slick-current slick-active" data-slick-index="0">
+                                                        <a href="/ProductImage/@Model.ImageName" class="product-single">
+                                                            <figure class="zoom" onmousemove="zoom(event)" style="background-image: url('@Url.Content("~/ProductImage/" + Model.ImageName)');">
+                                                                <img id="main-product-image" src="@Url.Content("~/ProductImage/" + Model.ImageName)" class="img-fluid" alt="product">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+                            <!-- blog slick slider end -->
+                            <!-- small slick-slider start -->
+                            @if (Model.ProductGalleries != null && Model.ProductGalleries.Any())
+                            {
+                                <div class="gallery-thumbnails d-flex flex-row gap-2 mt-3">
+                                    @foreach (var img in Model.ProductGalleries?.Where(p => !p.IsDelete) ?? new List<ProductGallery>())
+                                    {
+                                        <div class="thumb-wrapper">
+                                            <a href="javascript:void(0)" class="product-single--thumbnail">
+                                                <img src="@Url.Content("~/ProductImage/" + img.ImageName)" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;" alt="gallery-image">
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <p>هیچ گالری برای این محصول وجود ندارد.</p>
+                            }
+
+
+                            <!-- small slick-slider end -->
+                        </div>
+                        <!-- Product slider end -->
+                    </div>
+                    <!-- peoduct detail start -->
+                    <div class="product-details-wrap product-details-tb product-details">
+                        <div class="product-details-info">
+                            <div class="pro-nprist">
+                                <div class="product-info">
+                                    <!-- product-title start -->
+                                    <div class="product-title">
+                                        <h2>@Model.Title</h2>
+                                    </div>
+                                    <!-- product-title end -->
+                                </div>
+                                <div class="product-info">
+                                    <!-- product-rating start -->
+                           
+                                    <!-- product-rating end -->
+                                </div>
+                                <div class="product-info">
+                                    <div class="pro-prlb pro-sale">
+                                        <div class="price-box">
+                                            <span class="new-price">@Model.Price.ToString("0,#") تومان </span>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-inventory">
+
+                                        @if (Model.Available)
+                                        {
+                                            <div class="product-variant">
+                                                <h6>در دسترس بودن:</h6>
+                                                <span class="stock-qty in-stock text-success">
+                                                    <span>در انبار<i class="bi bi-check2"></i></span>
+                                                </span>
+                                                <span class="stock-qty out-stock text-danger collapse">
+                                                    <span>موجود نیست</span>
+                                                </span>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="product-variant">
+                                                <h6>در دسترس بودن:</h6>
+                                                <span class="stock-qty in-stock text-danger">
+                                                    <span>موجود نیست<i class="bi bi-x"></i></span>
+                                                </span>
+                                             
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <div class="pro-detail-action">
+                                        <form method="get" class="cart">
+                                            <div class="product-variant-option">
+                                                <div class="swatch-variant">
+                                                    <div class="swatch clearfix Color">
+                                                        <div class="header">
+                                                            <h6>
+                                                                <span>تگ:</span>
+                                                               
+                                                            </h6>
+                                                        </div>
+                                                        <div class="variant-wrap">
+                                                            <div class="variant-property">
+                                                                @foreach (string tag in Model.Tags.Split("-",StringSplitOptions.RemoveEmptyEntries))
+                                                                {
+                                                                    <div class="swatch-element color Red">
+                                                                    <a href="#">@tag</a>
+                                                                        <input type="radio" name="option-0" value="Red">
+                                                                    </div>
+                                                                }
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <form asp-action="AddToCart" class="cart">
+                                        <div class="pro-detail-button">
+                                            <div class="product-quantity-button">
+                                         
+                                          
+                                            </div>
+                                            <a  asp-controller="Order"
+                                               asp-action="AddToCart"
+                                               asp-route-productId="@Model.Id"
+                                               class="btn btn-cart btn-theme">
+                                                <span>  افزودن به سبد خرید</span>
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                             
+                           
+                            </div>
+                        </div>
+                        <div class="product-description-info">
+                            <h6 class="desc-title">
+                                <span>توضیحات</span>
+                            </h6>
+                            <div class="product-description">
+                                <p>@Html.Raw(Model.Description).</p>
+                          
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- peoduct detail end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        // وقتی یکی از تصاویر گالری کلیک میشه
+        document.querySelectorAll('.product-single--thumbnail img').forEach(function (thumb) {
+            thumb.addEventListener('click', function () {
+                var newImageSrc = this.getAttribute('src');
+
+                // تغییر تصویر بزرگ
+                document.getElementById('main-product-image').setAttribute('src', newImageSrc);
+
+                // تغییر background-image در figure برای زوم
+                var figure = document.querySelector('figure.zoom');
+                if (figure) {
+                    figure.style.backgroundImage = 'url(' + newImageSrc + ')';
+                }
+            });
+        });
+    </script>
+}

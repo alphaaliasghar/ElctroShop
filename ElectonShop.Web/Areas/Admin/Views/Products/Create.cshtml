@@ -1,0 +1,116 @@
+﻿@model CreateProductViewModel
+
+@{
+    ViewData["Title"] = "افزودن محصول";
+}
+
+<h1>افزودن محصول</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create"enctype="multipart/form-data"method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input type="file" asp-for="Image" id=" ImgUpload" onchange="ImgPre(this)" />
+                <br />
+                <img id="ImgPreview" width="100" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <fieldset>
+                <legend>گالری تصاویر</legend>
+
+                <input type="file"asp-for="Galleries" multiple />
+            </fieldset>
+            <br />
+            <div class="form-group">
+                <label asp-for="Tags" class="control-label"></label>
+                <input asp-for="Tags" class="form-control" />
+                <span asp-validation-for="Tags" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="GroupId" class="control-label"></label>
+                    <select onchange="LoadSubGroup()" id="GroupId" asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
+                </div>
+                <div class="form-group col-6" id="subs">
+                    <label asp-for="SubGroupId" class="control-label"></label>
+                    <select asp-for="SubGroupId" class="form-control" asp-items="ViewBag.SubGroupId"></select>
+                </div>
+            </div>
+
+
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Available" /> @Html.DisplayNameFor(model => model.Available)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Popularproduct" /> @Html.DisplayNameFor(model => model.Popularproduct)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Bestseller" /> @Html.DisplayNameFor(model => model.Bestseller)
+                </label>
+            </div>
+
+   
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts
+{
+    <script src="/CKEditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("Description", {
+            language: 'fa'
+        });
+    </script>
+    <script>
+        function LoadSubGroup() {
+            $("#subs").load("/Admin/Products/GetSubGroup?groupId=" +
+                $("#GroupId").val())
+        }
+    </script>
+    <script>
+        function ImgPre(input) {
+            if (input.files[0]) {
+                var uploadimg = new FileReader();
+                uploadimg.onload = function (displayimg) {
+                    $("#ImgPreview").attr('src', displayimg.target.result);
+                }
+                uploadimg.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+}
+

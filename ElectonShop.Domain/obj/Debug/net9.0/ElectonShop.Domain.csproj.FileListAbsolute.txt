@@ -1,0 +1,12 @@
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\bin\Debug\net9.0\ElectonShop.Domain.deps.json
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\bin\Debug\net9.0\ElectonShop.Domain.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\bin\Debug\net9.0\ElectonShop.Domain.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\ElectonShop.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\ElectonShop.Domain.AssemblyInfoInputs.cache
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\ElectonShop.Domain.AssemblyInfo.cs
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\ElectonShop.Domain.csproj.CoreCompileInputs.cache
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\ElectonShop.Domain.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\refint\ElectonShop.Domain.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\ElectonShop.Domain.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\ref\ElectonShop.Domain.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Domain\obj\Debug\net9.0\ElectonShop.Domain.csproj.AssemblyReference.cache

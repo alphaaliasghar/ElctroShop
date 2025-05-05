@@ -1,0 +1,23 @@
+﻿@model Product
+<li class="cart-item">
+    <div class="cart-item-info">
+        <div class="cart-item-image">
+            <a href="product-template.html">
+                <img src="/ProductImage/@Model.ImageName" class="img-fluid" alt="cart-1">
+            </a>
+        </div>
+        <div class="cart-item-details">
+            <div class="cart-item-name">
+                <a href="product-template.html">@Model.Title</a>
+            </div>
+            <div class="cart-pro-info">
+                <div class="cart-qty-price">
+                    <span>@Model.OrderrDetails.Count</span>
+                    <span>×</span>
+                    <span class="price">@Model.Price.ToString("#,0") تومان</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</li>

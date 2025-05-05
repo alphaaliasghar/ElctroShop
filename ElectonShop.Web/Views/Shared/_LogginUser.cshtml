@@ -1,0 +1,26 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+
+    <li class="info-wrap info-Login">
+        <div class="info-wrapper">
+            <a  asp-area="UserPanel" asp-controller="Home" asp-action="Index"  class="icon"><i class="feather-user"></i></a>
+            <div class="info-text">
+                <span class="label"> @User.Identity.Name</span>
+                <a asp-controller="Account" asp-action="Logout" class="info-link">خروج</a>
+            </div>
+        </div>
+    </li>
+}
+else
+{
+
+    <li class="info-wrap info-Login">
+        <div class="info-wrapper">
+            <a href="index.html" class="icon"><i class="feather-user"></i></a>
+            <div class="info-text">
+                <span class="label">حساب من</span>
+                <a asp-controller="Account" asp-action="Register" class="info-link">ورود به سیستم و ثبت نام</a>
+            </div>
+        </div>
+    </li>
+}

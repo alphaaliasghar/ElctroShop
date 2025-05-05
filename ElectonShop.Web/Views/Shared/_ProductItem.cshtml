@@ -1,0 +1,96 @@
+﻿@model ShowProductViewModel
+
+<div class="swiper-slide" data-animate="animate__fadeInUp">
+    <div class="single-product-wrap">
+        <div class="product-image">
+            <a  asp-controller="Product" asp-action="ShowProduct" asp-route-productId="@Model.Id"
+               class="pro-img">
+                <img src="/ProductImage/@Model.ImageName" class="img-fluid img1 mobile-img1" alt="p1">
+                <img src="/ProductImage/@Model.ImageName" class="img-fluid img2 mobile-img2" alt="p2">
+            </a>
+
+        </div>
+        <div class="product-content">
+
+            <div class="product-title">
+                <h6>
+                    <a  asp-controller="Product" asp-action="ShowProduct" asp-route-productId="@Model.Id"> @Model.Title</a>
+                </h6>
+            </div>
+            <div class="product-price">
+                <div class="pro-price-box">
+                    <span class="new-price">@Model.Price.ToString("0,#")تومان</span>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+@*<div class="special-product grid-3">
+        <div class="collection-category">
+            <div class="row">
+                <div class="col">
+                    <div class="collection-wrap">
+                        <ul class="product-view-ul">
+                            <li class="pro-item-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                <div class="single-product-wrap">
+                                    <div class="product-image">
+                                        <a href="product-template.html" class="pro-img">
+                                            <img src="/ProductImage/@Model.ImageName" class="img-fluid img1 mobile-img1" alt="p1">
+                                            <img src="/ProductImage/@Model.ImageName" class="img-fluid img2 mobile-img2" alt="p2">
+                                        </a>
+
+                                    </div>
+                                    <div class="product-content">
+
+                                        <div class="product-title">
+                                            <h6><a href="product-template.html">@Model.Title</a></h6>
+                                        </div>
+                                        <div class="product-price">
+                                            <div class="pro-price-box">
+                                                <span class="new-price">@Model.Price.ToString("0,#") تومان</span>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="product-action">
+                                            <a href="#quickview" class="quickview" data-bs-toggle="modal" data-bs-target="#quickview">
+                                                <span class="tooltip-text">نمایش سریع</span>
+                                                <span class="pro-action-icon"><i class="feather-eye"></i></span>
+                                            </a>
+                                            <a href="#add-to-cart" class="add-to-cart" data-bs-toggle="modal" data-bs-target="#add-to-cart">
+                                                <span class="tooltip-text">افزودن به سبد خرید</span>
+                                                <span class="pro-action-icon"><i class="feather-shopping-bag"></i></span>
+                                            </a>
+                                            <a href="wishlist-product.html" class="wishlist">
+                                                <span class="tooltip-text">علاقه مندی ها</span>
+                                                <span class="pro-action-icon"><i class="feather-heart"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="pro-label-retting">
+                                        <div class="product-ratting">
+                                            <span class="pro-ratting">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </span>
+                                        </div>
+                                        <div class="product-label pro-new-sale">
+                                            <span class="product-label-title">فروش<span>20%</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>*@

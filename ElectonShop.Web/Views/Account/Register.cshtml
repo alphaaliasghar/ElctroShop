@@ -1,0 +1,78 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "ثبت نام";
+}
+
+<section class="customer-page section-ptb">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- account login title start -->
+                <div class="section-capture">
+                    <div class="section-title">
+                        <h2 data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated"><span>ایجاد حساب کاربری</span></h2>
+                    </div>
+                </div>
+                <!-- account login title end -->
+                <!-- account login start  -->
+                <div class="log-acc-page">
+                    <div class="contact-form-list">
+                        <form  asp-controller="Account"  asp-action="Register" method="post">
+                            <ul class="form-fill">
+                                <li class="form-fill-li Name animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <label asp-for="UserName"></label>
+                                    <input asp-for="UserName" type="text"  autocomplete="name" placeholder="نام کاربری">
+                                    <span asp-validation-for="UserName"></span>
+                                </li>
+                                <li class="form-fill-li Email animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <label asp-for="Email">آدرس ایمیل</label>
+                                    <input asp-for="Email" type="email"  autocomplete="email" placeholder="آدرس ایمیل">
+                                    <span asp-validation-for="Email"></span>
+                                </li>
+                                <li class="form-fill-li Password animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <label asp-for="Password"> </label>
+                                    <input asp-for="Password" type="password"  placeholder="رمز عبور">
+                                    <span asp-validation-for="Password"></span>
+                                </li>
+                                <li class="form-fill-li Phonenumber animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <label asp-for="RePassword"> </label>
+                                    <input asp-for="RePassword" type="password"  placeholder=" تکرار کلمه عبور">
+                                    <span asp-validation-for="RePassword"></span>
+                                </li>
+
+                            </ul>
+                            <div class="form-action-button">
+                                <div class="read-agree">
+                                    <label data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated">
+                                        <span class="agree-text">
+                                            من خوانده‌ام و با آن موافقم
+                                            <a href="terms-condition.html">شرایط و ضوابط.</a>
+                                        </span>
+                                        <input asp-for="Roulse" type="checkbox" class="cust-checkbox create-checkbox">
+                                        <span class="cust-check"></span>
+
+                                    </label>
+                                    <span asp-validation-for="Roulse"></span>
+                                    <button type="submit" class="btn btn-style2 create disabled animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">ثبت نام</button>
+                                </div>
+                           
+                            </div>
+                        </form>
+                    </div>
+                    <div class="acc-wrapper animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                        <h6>قبلاً حساب دارید؟</h6>
+                        <div class="account-optional">
+                            <a asp-controller="Account"
+                               asp-action="Login">ورود</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- account login start -->
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+

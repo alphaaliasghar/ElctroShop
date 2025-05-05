@@ -1,0 +1,17 @@
+F:\Programing\Zero Project\Electon\ElectonShop.Application\bin\Debug\net9.0\ElectonShop.Application.deps.json
+F:\Programing\Zero Project\Electon\ElectonShop.Application\bin\Debug\net9.0\ElectonShop.Application.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Application\bin\Debug\net9.0\ElectonShop.Application.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Application\bin\Debug\net9.0\ElectonShop.Domain.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Application\bin\Debug\net9.0\ElectonShop.Infra.Data.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Application\bin\Debug\net9.0\ElectonShop.Infra.Data.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Application\bin\Debug\net9.0\ElectonShop.Domain.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ElectonShop.Application.csproj.AssemblyReference.cache
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ElectonShop.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ElectonShop.Application.AssemblyInfoInputs.cache
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ElectonShop.Application.AssemblyInfo.cs
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ElectonShop.Application.csproj.CoreCompileInputs.cache
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ElectonS.0FB2530C.Up2Date
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ElectonShop.Application.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\refint\ElectonShop.Application.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ElectonShop.Application.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Application\obj\Debug\net9.0\ref\ElectonShop.Application.dll

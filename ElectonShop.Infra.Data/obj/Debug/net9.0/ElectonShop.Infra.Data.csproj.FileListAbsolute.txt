@@ -1,0 +1,17 @@
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\bin\Debug\net9.0\ElectonShop.Infra.Data.deps.json
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\bin\Debug\net9.0\ElectonShop.Infra.Data.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\bin\Debug\net9.0\ElectonShop.Infra.Data.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\bin\Debug\net9.0\ElectonShop.Domain.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\bin\Debug\net9.0\ElectonShop.Domain.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonShop.Infra.Data.csproj.AssemblyReference.cache
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonShop.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonShop.Infra.Data.AssemblyInfoInputs.cache
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonShop.Infra.Data.AssemblyInfo.cs
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonShop.Infra.Data.csproj.CoreCompileInputs.cache
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonS.AFA4C0A0.Up2Date
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonShop.Infra.Data.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\refint\ElectonShop.Infra.Data.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonShop.Infra.Data.pdb
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ref\ElectonShop.Infra.Data.dll
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\bin\Debug\net9.0\ElectonShop.Infra.Data.runtimeconfig.json
+F:\Programing\Zero Project\Electon\ElectonShop.Infra.Data\obj\Debug\net9.0\ElectonShop.Infra.Data.genruntimeconfig.cache

@@ -1,0 +1,121 @@
+﻿@model IEnumerable<UserViewModel>
+
+@{
+    ViewData["Title"] = "مدیریت کاربران";
+}
+
+<h1>مدیریت کاربران </h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success">افزودن کاربر جدید </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AvatarName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="@((item.IsDelete)?"background-color:red":"")">
+                <td>
+                    <img src="/Avatar/@item.AvatarName" width="50" alt="Alternate Text" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @item.CreateDate.ToShamsi()
+                </td>
+                <td>
+                    @item.ModifiDate?.ToShamsi()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDelete)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning">ویرایش</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-primary">جزئیات</a> |
+                    <a  onclick="DeleteConfirm(@item.Id)" class="btn btn-outline-danger">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (ViewBag.PageCount > 1)
+{
+    <nav aria-label="...">
+        <ul class="pagination">
+            @if (ViewBag.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Admin/Users?pageId=@((ViewBag.CurrentPage-1))">قبلی</a>
+                </li>
+            }
+
+
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                <li class="page-item @((ViewBag.CurrentPage==i)?"active":"")">
+                    <a class="page-link" href="/Admin/Users?pageId=@i">@i <span class="sr-only">(current)</span></a>
+                </li>
+            }
+
+            @if (ViewBag.CurrentPage < ViewBag.PageCount)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Admin/Users?pageId=@((ViewBag.CurrentPage+1))">بعدی</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+@section Scripts
+{
+    <script>
+        function DeleteConfirm(userId) {
+
+            Swal.fire({
+                title: "آیا از  انجام این کار مطمئن هستید؟",
+                showCancelButton: true,
+                denyButtonText: "تأیید"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  location.href ="/Admin/Users/DeleteUser/"+userId
+                }
+            });
+        }
+    </script>
+}

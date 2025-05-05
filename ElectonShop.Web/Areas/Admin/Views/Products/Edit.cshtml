@@ -1,0 +1,150 @@
+﻿@model EditProductViewModel
+
+@{
+    ViewData["Title"] = "ویرایش";
+}
+
+<h1>ویرایش محصول</h1>
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" enctype="multipart/form-data" method="post">
+          
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ImageName" />
+            <input type="hidden" asp-for="GalleryName" />
+         
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label"></label>
+                <input type="file" asp-for="Image" id=" ImgUpload" onchange="ImgPre(this)" />
+                <br />
+                <img id="ImgPreview" width="100"src="/ProductImage/@Model.ImageName" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group" id="gallery">
+                <fieldset>
+                    <legend>گالری تصاویر</legend>
+
+                    <input type="file" asp-for="Galleries" multiple />
+                    @if (ViewBag.Galleries != null)
+                    {
+                        List<GalleryViewModel> gallery = ViewBag.Galleries as List<GalleryViewModel>;
+
+                        <div class="row">
+
+                            @foreach (var img in gallery)
+                            {
+
+                                <div class="col-3">
+                                    <img src="/ProductImage/@img.ImageName" width="100" alt="Alternate Text" />
+                                    <br />
+                                    <a  asp-action="DeleteGallery" asp-route-productId="@Model.Id" asp-route-id="@img.Id" class="btn btn-sm btn-outline-danger mb-3">حذف</a>
+                                </div>
+
+                            }
+                        </div>
+
+                    }
+                </fieldset>
+            </div>
+           
+            <br />
+            <div class="form-group">
+                <label asp-for="Tags" class="control-label"></label>
+                <input asp-for="Tags" class="form-control" />
+                <span asp-validation-for="Tags" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="GroupId" class="control-label"></label>
+                    <select onchange="LoadSubGroup()" id="GroupId" asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
+                </div>
+                <div class="form-group col-6" id="subs">
+                    <label asp-for="SubGroupId" class="control-label"></label>
+                    <select asp-for="SubGroupId" class="form-control" asp-items="ViewBag.SubGroupId"></select>
+                </div>
+            </div>
+
+
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Available" /> @Html.DisplayNameFor(model => model.Available)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Popularproduct" /> @Html.DisplayNameFor(model => model.Popularproduct)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Bestseller" /> @Html.DisplayNameFor(model => model.Bestseller)
+                </label>
+            </div> 
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDelete" /> @Html.DisplayNameFor(model => model.IsDelete)
+                </label>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="ویرایش" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts
+{
+    <script src="/CKEditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("Description", {
+            language: 'fa'
+        });
+    </script>
+    <script>
+        function LoadSubGroup() {
+            $("#subs").load("/Admin/Products/GetSubGroup?groupId=" +
+                $("#GroupId").val())
+        }
+    </script>
+    <script>
+        function ImgPre(input) {
+            if (input.files[0]) {
+                var uploadimg = new FileReader();
+                uploadimg.onload = function (displayimg) {
+                    $("#ImgPreview").attr('src', displayimg.target.result);
+                }
+                uploadimg.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+
+}
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ShowProductViewModel>
+
+<section class="search-page bg-color section-ptb">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section-capture">
+                    <div class="section-title">
+                        <h2 data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated"><span>جستجوی شما برای "محصولات  محبوب" موارد زیر را نشان داد:</span></h2>
+                    </div>
+                </div>
+      
+                <!-- special-product start -->
+                <div class="special-product grid-3">
+                    <div class="collection-category">
+                        <div class="row">
+                            <div class="col">
+                                <div class="collection-wrap">
+                                    <ul class="product-view-ul">
+                                        @if (Model != null && Model.Any())
+                                        {
+                                            foreach (var item in Model)
+                                            {
+                                                <li class="pro-item-li animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                                    <partial name="_ProductItem" model="@item" />
+                                                </li>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <p>موردی برای نمایش وجود ندارد.</p>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                                <div class="paginatoin-area">
+                                    <ul class="pagination-page-box" data-animate="animate__fadeInUp">
+                                        <li class="number active"><a href="javascript:void(0)" class="theme-glink">1</a></li>
+                                        <li class="number"><a href="javascript:void(0)" class="gradient-text">2</a></li>
+                                        <li class="page-next"><a href="javascript:void(0)" class="theme-glink"><i class="fa -solid fa-angle-left"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- special-product end -->
+            </div>
+        </div>
+    </div>
+</section>

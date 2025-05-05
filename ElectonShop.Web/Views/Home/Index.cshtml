@@ -1,0 +1,377 @@
+﻿@model IEnumerable<ShowProductViewModel>
+
+@{
+    ViewData["Title"] = "خانه ";
+}
+
+
+@section Slider
+{
+    <section class="slider-content">
+        <div class="home-slider owl-carousel owl-theme" id="home-slider">
+            <div class="item">
+                <div class="slider-image-info">
+                    <!-- slider-text start -->
+                    <div class="slider-image">
+                        <img src="/img/slider/home1-slider.jpg" class="img-fluid desk-img" alt="slider1">
+                        <img src="/img/slider/home1-mobile-slider.jpg" class="img-fluid mobile-img" alt="mobile-slider1">
+                    </div>
+                    <!-- slider-img end -->
+                    <div class="container slider-info-content">
+                        <div class="row">
+                            <div class="col">
+                                <div class="slider-info-wrap slider-content-left slider-text-left">
+                                    <!-- slider-text start -->
+                                    <div class="slider-info-text">
+                                        <div class="slider-text-info">
+                                            <span class="sub-title">با 80% تخفیف دریافت کنید</span>
+                                            <h2><span>دوربین DSLR 360</span></h2>
+                                            <div class="slider-text">
+                                                <span>100٪ قابل اعتماد</span>
+                                                <span> ابزار الکترونیکی</span>
+                                            </div>
+                                            <a href="collection.html" class="btn btn-style">مجموعه آنلاین</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- slider-text end -->
+                </div>
+            </div>
+            <div class="item">
+                <div class="slider-image-info">
+                    <!-- slider-text start -->
+                    <div class="slider-image">
+                        <img src="/img/slider/home1-slider2.jpg" class="img-fluid desk-img" alt="slider1">
+                        <img src="/img/slider/home1-mobile-slider2.jpg" class="img-fluid mobile-img" alt="mobile-slider1">
+                    </div>
+                    <!-- slider-img end -->
+                    <div class="container slider-info-content">
+                        <div class="row">
+                            <div class="col">
+                                <div class="slider-info-wrap slider-content-left slider-text-left">
+                                    <!-- slider-text start -->
+                                    <div class="slider-info-text">
+                                        <div class="slider-text-info">
+                                            <span class="sub-title">با 80% تخفیف دریافت کنید</span>
+                                            <h2><span> هدفون های بی سیم</span></h2>
+                                            <div class="slider-text">
+                                                <span>100٪ قابل اعتماد</span>
+                                                <span> ابزار الکترونیکی</span>
+                                            </div>
+                                            <a href="collection.html" class="btn btn-style">مجموعه آنلاین</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- slider-text end -->
+                </div>
+            </div>
+            <div class="item">
+                <div class="slider-image-info">
+                    <!-- slider-text start -->
+                    <div class="slider-image">
+                        <img src="/img/slider/home1-slider3.jpg" class="img-fluid desk-img" alt="slider1">
+                        <img src="/img/slider/home1-mobile-slider3.jpg" class="img-fluid mobile-img" alt="mobile-slider1">
+                    </div>
+                    <!-- slider-img end -->
+                    <div class="container slider-info-content">
+                        <div class="row">
+                            <div class="col">
+                                <div class="slider-info-wrap slider-content-left slider-text-left">
+                                    <!-- slider-text start -->
+                                    <div class="slider-info-text">
+                                        <div class="slider-text-info">
+                                            <span class="sub-title">با 80% تخفیف دریافت کنید</span>
+                                            <h2><span>دستگاه بی سیم</span></h2>
+                                            <div class="slider-text">
+                                                <span>100٪ قابل اعتماد</span>
+                                                <span> ابزار الکترونیکی</span>
+                                            </div>
+                                            <a href="collection.html" class="btn btn-style">مجموعه آنلاین</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- slider-text end -->
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<!-- category start -->
+<section class="slider-category section-ptb">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="cat-wrap">
+                    <li class="cat-wrapper heading">
+                        <div class="section-capture">
+                            <div class="section-title">
+
+                                <h2><span>دسته بندی محصولات</span></h2>
+                            </div>
+                        </div>
+                        <a href="collection.html" class="btn btn-style2">مشاهده همه</a>
+                    </li>
+                    <li class="cat-wrapper">
+                        <div class="swiper" id="slider-category">
+                            <div class="swiper-wrapper">
+                                @foreach (var item in Model.Select(s => s.Group).DistinctBy(p => p.Id))
+                                {
+                                    <div class="swiper-slide" data-animate="animate__fadeInUp">
+                                        <div class="cate-info">
+                                            <div class="category-block">
+                                                <a asp-controller="Product" asp-action="ShowGroup" asp-route-groupId="@item.Id" asp-route-groupTitle="@item.GroupTitle" class="cat-img banner-hover">
+                                                    <img src="/Group/@item.GroupName" class="img-fluid" alt="cate1">
+                                                </a>
+                                            </div>
+
+                                            <h6 class="cat-title"> @item.GroupTitle</h6>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+                        <div class="swiper-arrow">
+                            <button class="swiper-button swiper-category-prev"><i class=" feather-arrow-left"></i></button>
+                            <button class="swiper-button swiper-category-next"><i class=" feather-arrow-right"></i></button>
+                        </div>
+                        <div class="swiper-dots">
+                            <div class="swiper-pagination swiper-pagination-category"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- category end -->
+<!-- banner-grid start -->
+<section class="home-banner-grid section-pt">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="banner-grid-block">
+                    <ul class="banner-grid-ul">
+                        <li class="banner-grid-li big-banner">
+                            <div class="banner-block">
+                                <a href="collection.html">
+                                    <span class="image-block">
+                                        <img src="/img/banner/home-banner-1.jpg" class="img-fluid" alt="big-banner1">
+                                    </span>
+                                    <div class="banner-content banner-text-left banner-content-right">
+                                        <span class="subtitle" data-animate="animate__fadeInUp">60% تخفیف</span>
+                                        <h2 class="title" data-animate="animate__fadeInUp">دستگاه های بی سیم</h2>
+                                        <span class="banner-button btn-style" data-animate="animate__fadeInUp">هم اکنون خرید کنید</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="banner-grid-li big-banner">
+                            <div class="banner-block">
+                                <a href="collection.html">
+                                    <span class="image-block">
+                                        <img src="/img/banner/home-banner-2.jpg" class="img-fluid" alt="big-banner2">
+                                    </span>
+                                    <div class="banner-content banner-text-left banner-content-right">
+                                        <span class="subtitle" data-animate="animate__fadeInUp">45% تخفیف</span>
+                                        <h2 class="title" data-animate="animate__fadeInUp">پخش کننده موسیقی</h2>
+                                        <span class="banner-button btn-style" data-animate="animate__fadeInUp">هم اکنون خرید کنید</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="banner-grid-li big-banner">
+                            <div class="banner-block">
+                                <a href="collection.html">
+                                    <span class="image-block">
+                                        <img src="/img/banner/home-banner-3.jpg" class="img-fluid" alt="big-banner3">
+                                    </span>
+                                    <div class="banner-content banner-text-left banner-content-right">
+                                        <span class="subtitle" data-animate="animate__fadeInUp">20% تخفیف</span>
+                                        <h2 class="title" data-animate="animate__fadeInUp">ساعت اندروید T6</h2>
+                                        <span class="banner-button btn-style" data-animate="animate__fadeInUp">هم اکنون خرید کنید</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner-grid end -->
+<!-- our-service start -->
+<section class="our-service-area section-ptb">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="grid-wrap">
+                    <li class="grid-wrapper" data-animate="animate__fadeInUp">
+                        <div class="ser-block">
+                            <a href="javascript:void(0)">
+                                <span class="ser-icon">
+                                    <img src="/img/service/home-ser1.png" class="img-fluid" alt="service-1">
+                                    <span></span>
+                                </span>
+                                <div class="service-text">
+                                    <h6>حمل و نقل در سراسر جهان</h6>
+                                    <p>تولید شده وجود دارد!</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="grid-wrapper" data-animate="animate__fadeInUp">
+                        <div class="ser-block">
+                            <a href="javascript:void(0)">
+                                <span class="ser-icon">
+                                    <img src="/img/service/home-ser2.png" class="img-fluid" alt="service-2">
+                                    <span></span>
+                                </span>
+                                <div class="service-text">
+                                    <h6>پرداخت مطمئن</h6>
+                                    <p>تولید شده وجود دارد!</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="grid-wrapper" data-animate="animate__fadeInUp">
+                        <div class="ser-block">
+                            <a href="javascript:void(0)">
+                                <span class="ser-icon">
+                                    <img src="/img/service/home-ser3.png" class="img-fluid" alt="service-3">
+                                    <span></span>
+                                </span>
+                                <div class="service-text">
+                                    <h6>روش برگشت</h6>
+                                    <p>تولید شده وجود دارد!</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="grid-wrapper" data-animate="animate__fadeInUp">
+                        <div class="ser-block">
+                            <a href="javascript:void(0)">
+                                <span class="ser-icon">
+                                    <img src="/img/service/home-ser4.png" class="img-fluid" alt="service-4">
+                                    <span></span>
+                                </span>
+                                <div class="service-text">
+                                    <h6>بهترین کوپن هدیه</h6>
+                                    <p>تولید شده وجود دارد!</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- our-service end -->
+<!-- product-tranding start -->
+<section class="Trending-product bg-color section-ptb">
+    <div class="collection-category">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section-capture">
+                        <div class="section-title">
+                            <span class="sub-title" data-animate="animate__fadeInUp">مجموعه را مرور کنید</span>
+                            <h2><span data-animate="animate__fadeInUp">محصول پرطرفدار</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="collection-wrap">
+
+                        <div class="collection-slider swiper" id="Trending-product">
+                            <div class="swiper-wrapper">
+                                @foreach (var item in Model.Where(p => p.Popularproduct && !p.IsDelete))
+                                {
+                                    <div class="swiper-slide" data-animate="animate__fadeInUp">
+                                        <partial name="_ProductItem" model="@item" />
+                                    </div>
+                                }
+                            </div>
+
+
+                            <div class="collection-button" data-animate="animate__fadeInUp">
+                                <a asp-controller="Product"
+                                   asp-action="Popularproduct"
+                                   class="btn btn-style2" data-animate="animate__fadeInUp">مشاهده همه موارد</a>
+                            </div>
+
+
+                            @*<div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section-capture">
+                        <div class="section-title">
+                            <span class="sub-title" data-animate="animate__fadeInUp">مجموعه را مرور کنید</span>
+                            <h2><span data-animate="animate__fadeInUp">محصول پرفروش</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="collection-wrap">
+                        <div class="collection-slider swiper" id="Trending-product">
+                            <div class="swiper-wrapper">
+                                @foreach (var item in Model.Where(p => p.Bestseller && !p.IsDelete))
+                                {
+                                    <div class="swiper-slide" data-animate="animate__fadeInUp">
+                                        <partial name="_ProductItem" model="item" />
+                                    </div>
+                                }
+                            </div>
+
+
+                            <div class="collection-button" data-animate="animate__fadeInUp">
+                                <a asp-controller="Product"
+                                   asp-action="Bestller"
+                                   class="btn btn-style2" data-animate="animate__fadeInUp">مشاهده همه موارد</a>
+                            </div>
+
+
+                            @*<div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- product-tranding end -->
+<!-- deal-day start -->
+<!-- deal-day end -->
+<!-- test-area start -->
+<!-- test-area end -->
+<!-- product-Featured  start -->

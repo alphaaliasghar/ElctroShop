@@ -1,0 +1,124 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "ورود";
+}
+
+<section class="customer-page section-ptb">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- account login title start -->
+                <div class="log-acc" id="CustomerLoginForm">
+                    <div class="section-capture">
+                        <div class="section-title">
+                            <h2 data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated"><span>ورود به حساب</span></h2>
+                        </div>
+                    </div>
+                    <!-- account login title end -->
+                    <!-- account login start  -->
+                    <div class="log-acc-page">
+                        <div class="contact-form-list">
+                            <form  asp-action="Login" method="post"> 
+                                
+                                <input type="hidden" name="ReturnURL" value="@ViewBag.ReturnURL" />
+                                
+                                <ul class="form-fill">
+                                    <li class="form-fill-li Email animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                        <label asp-for="EmailOrUserName"> </label>
+                                        <input asp-for="EmailOrUserName" type="text" autocomplete="email" placeholder="آدرس ایمیل">
+                                        <span asp-validation-for="EmailOrUserName"></span>
+                                    </li>
+                                    <li class="form-fill-li Password animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                        <label asp-for="Password"> </label>
+                                        <input asp-for="Password" type="password" placeholder="کلمه عبور">
+                                        <span asp-validation-for="Password"></span>
+                                    </li>
+                                    <li>
+                                        <div class="read-agree">
+                                            <label data-animate="animate__fadeInUp" class="animate__fadeInUp animate__animated">
+                                                <span class="agree-text">
+                                                    <input asp-for="RememberMy" type="checkbox" class="cust-checkbox create-checkbox">
+                                                    مرا به خاطر بسپار
+                                                    <span class="cust-check"></span>
+
+
+                                                </span>
+                                               
+
+                                            </label>
+                                            <span asp-validation-for="RememberMy"></span>
+                                           
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <div class="form-action-button animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                                    <div class="button-forget">
+                                        <button type="submit" class="btn btn-style2">وارد شوید</button>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="acc-wrapper animate__fadeInUp animate__animated" data-animate="animate__fadeInUp">
+                            <h6>آیا حساب دارید؟</h6>
+                            <div class="account-optional">
+                                <a href="create-account.html">ایجاد حساب</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="log-acc" id="RecoverPasswordForm" style="display: none;">
+                    <!-- account title start -->
+                    <div class="content-main-title">
+                        <div class="section-capture">
+                            <div class="section-title">
+                                <h2><span>ورود به حساب</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- account title end -->
+                    <!-- account login start -->
+                    <div class="log-acc-page">
+                        <div class="contact-form-list">
+                            <form method="post">
+                                <ul class="form-fill">
+                                    <li class="form-fill-li Email">
+                                        <label>آدرس ایمیل</label>
+                                        <input type="email" name="q" autocomplete="email" placeholder="آدرس ایمیل">
+                                    </li>
+                                </ul>
+                                <div class="form-action-button">
+                                    <div class="button-forget">
+                                        <button type="submit" class="btn btn-style2">لغو</button>
+                                        <a href="javascript:void(0)" onclick="myFunction()">لغو</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- account login end -->
+                </div>
+                <!-- account login start -->
+            </div>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("RecoverPasswordForm");
+            var y = document.getElementById("CustomerLoginForm");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            }
+            else {
+                x.style.display = "none";
+            }
+            if (y.style.display === "none") {
+                y.style.display = "block";
+            }
+            else {
+                y.style.display = "none";
+            }
+        }
+    </script>
+</section>
