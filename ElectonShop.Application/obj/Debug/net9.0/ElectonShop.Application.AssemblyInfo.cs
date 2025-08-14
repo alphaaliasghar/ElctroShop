@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ElectonShop.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1054b61497b643ec5727127c7d42384afab20a3b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ElectonShop.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ElectonShop.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
