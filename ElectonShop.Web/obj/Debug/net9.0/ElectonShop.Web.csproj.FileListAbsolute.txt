@@ -1512,3 +1512,4 @@ F:\Programing\Zero Project\Electon\ElectonShop.Web\obj\Debug\net9.0\compressed\8
 F:\Programing\Zero Project\Electon\ElectonShop.Web\obj\Debug\net9.0\compressed\c2fivcjp3t-l5xz34fmxn.gz
 F:\Programing\Zero Project\Electon\ElectonShop.Web\obj\Debug\net9.0\compressed\7j7hbqrkl9-owgy76zcxb.gz
 F:\Programing\Zero Project\Electon\ElectonShop.Web\obj\Debug\net9.0\compressed\nhn44nwfo4-8s7jricus6.gz
+F:\Programing\Zero Project\Electon\ElectonShop.Web\obj\Debug\net9.0\ElectonShop.Web.sourcelink.json

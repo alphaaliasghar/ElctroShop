@@ -26964,6 +26964,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Group\0452e466-bf24-4492-b823-db87831c47c3.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Group\08d951c1-ef34-4ca7-9352-a6b8f973df77.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ElectonShop.Web</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ElectonShop.Web</BasePath>
+      <RelativePath>Group/08d951c1-ef34-4ca7-9352-a6b8f973df77.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>a7hkvuc5at</Fingerprint>
+      <Integrity>6rSd1JvHvqL1PQPaxRNhEYzoyXPBDLjq/Hd83u9zKgc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Group\08d951c1-ef34-4ca7-9352-a6b8f973df77.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Group\4cb606b1-b6aa-4a3a-bc87-e477ff15dca3.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>ElectonShop.Web</SourceId>

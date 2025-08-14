@@ -17976,6 +17976,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5o0affWH2epZfsudtHdPv5o0H7QfxHaD7KUcF30vTeo="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"138217"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00225o0affWH2epZfsudtHdPv5o0H7QfxHaD7KUcF30vTeo=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Apr 2025 13:43:24 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectonShop.Web/Group/08d951c1-ef34-4ca7-9352-a6b8f973df77.a7hkvuc5at.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Group\08d951c1-ef34-4ca7-9352-a6b8f973df77.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"a7hkvuc5at"},{"Name":"integrity","Value":"sha256-6rSd1JvHvqL1PQPaxRNhEYzoyXPBDLjq/Hd83u9zKgc="},{"Name":"label","Value":"_content/ElectonShop.Web/Group/08d951c1-ef34-4ca7-9352-a6b8f973df77.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6641"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00226rSd1JvHvqL1PQPaxRNhEYzoyXPBDLjq/Hd83u9zKgc=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Apr 2025 13:52:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectonShop.Web/Group/08d951c1-ef34-4ca7-9352-a6b8f973df77.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Group\08d951c1-ef34-4ca7-9352-a6b8f973df77.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6rSd1JvHvqL1PQPaxRNhEYzoyXPBDLjq/Hd83u9zKgc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"6641"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00226rSd1JvHvqL1PQPaxRNhEYzoyXPBDLjq/Hd83u9zKgc=\u0022"},{"Name":"Last-Modified","Value":"Sun, 27 Apr 2025 13:52:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectonShop.Web/Group/4cb606b1-b6aa-4a3a-bc87-e477ff15dca3.0q7tgh936q.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Group\4cb606b1-b6aa-4a3a-bc87-e477ff15dca3.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

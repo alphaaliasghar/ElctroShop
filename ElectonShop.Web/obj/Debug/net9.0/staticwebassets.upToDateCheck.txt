@@ -2725,6 +2725,7 @@ wwwroot\font\IRANSansWeb(FaNum)_Bold.ttf
 wwwroot\font\IRANSansWeb(FaNum)_Medium.ttf
 wwwroot\font\IRANSansWeb_Light.ttf
 wwwroot\Group\0452e466-bf24-4492-b823-db87831c47c3.jpg
+wwwroot\Group\08d951c1-ef34-4ca7-9352-a6b8f973df77.jpg
 wwwroot\Group\4cb606b1-b6aa-4a3a-bc87-e477ff15dca3.jpg
 wwwroot\Group\cb0b8e7f-4b26-45bd-b950-ef881130cb83.jpg
 wwwroot\Group\e5ca0c55-624e-4cb3-ab32-eeb48b1ca38a.jpg

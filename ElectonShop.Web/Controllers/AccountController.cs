@@ -84,7 +84,7 @@ namespace ElectonShop.Web.Controllers
                 ModelState.AddModelError("", "حساب کاربری شما مسدود شده است لطفا با پشتیبانی تماس بگیرید");
                 return View(model);
             }
-            
+
             List<Claim> claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Email,user.Email),
@@ -96,11 +96,11 @@ namespace ElectonShop.Web.Controllers
             ClaimsPrincipal principal = new ClaimsPrincipal(identity);
             AuthenticationProperties properties = new AuthenticationProperties()
             {
-                IsPersistent=model.RememberMy
+                IsPersistent = model.RememberMy
             };
             HttpContext.SignInAsync(principal, properties);
 
-          
+
             return Redirect(ReturnURL ?? "/");
         }
         #endregion
